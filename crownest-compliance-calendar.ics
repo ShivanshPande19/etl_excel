@@ -1,0 +1,97 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Crownest Hospitality//Monthly Compliance Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Crownest Hospitality - Monthly Compliance
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:rental-cam-crownest-001@crownesthospitality
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Asia/Kolkata:20260801T100000
+DTEND;TZID=Asia/Kolkata:20260801T103000
+RRULE:FREQ=MONTHLY;BYMONTHDAY=1
+SUMMARY:Rental Charges + CAM (Common Area Maintenance) DUE
+DESCRIPTION:Pay/record Rental charges and CAM (Common Area Maintenance) for the month.\n\nAccount: accounts@crownesthospitality (verify correct email)\nDue: 1st of every month
+CATEGORIES:Finance,Compliance
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Rental + CAM due in 4 days (due 1st)
+TRIGGER:-P4D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Rental + CAM due TOMORROW (1st)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:tds-payment-crownest-002@crownesthospitality
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Asia/Kolkata:20260807T100000
+DTEND;TZID=Asia/Kolkata:20260807T103000
+RRULE:FREQ=MONTHLY;BYMONTHDAY=7
+SUMMARY:TDS Deposit (deducted from party) - DUE BY 7th
+DESCRIPTION:Deposit TDS deducted from the party for the previous month. Statutory due date is the 7th.\n\nAccount: accounts@crownesthospitality (verify correct email)\nDeadline: on/before 7th of every month
+CATEGORIES:Tax,Compliance
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:TDS deposit due in 4 days (due 7th)
+TRIGGER:-P4D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:TDS deposit due TOMORROW (7th)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gstr1-crownest-003@crownesthospitality
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Asia/Kolkata:20260811T100000
+DTEND;TZID=Asia/Kolkata:20260811T103000
+RRULE:FREQ=MONTHLY;BYMONTHDAY=11
+SUMMARY:File GSTR-1 (Sales / Outward Supplies data) - DUE BY 11th
+DESCRIPTION:File GSTR-1 with sales (outward supply) data for the previous month. Statutory due date is the 11th.\n\nAccount: accounts@crownesthospitality (verify correct email)\nDeadline: on/before 11th of every month
+CATEGORIES:GST,Compliance
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:GSTR-1 due in 4 days (due 11th)
+TRIGGER:-P4D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:GSTR-1 due TOMORROW (11th)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:gstr3b-crownest-004@crownesthospitality
+DTSTAMP:20260722T000000Z
+DTSTART;TZID=Asia/Kolkata:20260820T100000
+DTEND;TZID=Asia/Kolkata:20260820T103000
+RRULE:FREQ=MONTHLY;BYMONTHDAY=20
+SUMMARY:File GSTR-3B (Summary return + tax payment) - DUE BY 20th
+DESCRIPTION:File GSTR-3B summary return and pay GST for the previous month. Statutory due date is the 20th.\n\nAccount: accounts@crownesthospitality (verify correct email)\nDeadline: on/before 20th of every month
+CATEGORIES:GST,Compliance
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:GSTR-3B due in 4 days (due 20th)
+TRIGGER:-P4D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:GSTR-3B due TOMORROW (20th)
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
