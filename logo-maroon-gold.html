@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crownest Hospitality — Maroon &amp; Gold</title>
+<style>
+  :root{
+    --maroon:#6b1f2a;
+    --maroon-d:#511620;
+    --gold:#c8a04a;
+    --gold-l:#dcbb6a;
+    --cream:#f8f4ec;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Segoe UI",Arial,sans-serif;background:#eceef2;color:#222;padding:40px 24px;}
+  h2.title{text-align:center;color:var(--maroon);font-size:26px;letter-spacing:1px;margin-bottom:6px;}
+  p.sub{text-align:center;color:#666;margin-bottom:34px;font-size:14px;}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:1000px;margin:0 auto;}
+  .card{background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.08);overflow:hidden;border:1px solid #e3e6ec;}
+  .card .tag{background:var(--maroon);color:#fff;font-size:13px;letter-spacing:1px;padding:9px 16px;text-transform:uppercase;font-weight:600;}
+  .card .desc{font-size:12.5px;color:#777;padding:8px 16px 0;}
+  .swatches{display:flex;}
+  .swatch{flex:1;display:flex;align-items:center;justify-content:center;padding:34px 10px;min-height:190px;}
+  .swatch.light{background:var(--cream);}
+  .swatch.dark{background:var(--maroon);}
+</style>
+</head>
+<body>
+  <h2 class="title">CROWNEST HOSPITALITY LLP</h2>
+  <p class="sub">Maroon &amp; Gold palette — shown on cream (light) &amp; maroon (dark) backgrounds.</p>
+
+  <div class="grid">
+
+    <!-- ============ OPTION 1: Circular Crest ============ -->
+    <div class="card">
+      <div class="tag">Option 1 — Circular Crest</div>
+      <p class="desc">Premium seal-style emblem for stamps, documents, favicon.</p>
+      <div class="swatches">
+        <div class="swatch light">
+          <svg width="160" height="160" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="94" fill="none" stroke="#6b1f2a" stroke-width="3"/>
+            <circle cx="100" cy="100" r="82" fill="none" stroke="#c8a04a" stroke-width="1.5"/>
+            <path d="M62 108 L54 66 L78 86 L100 54 L122 86 L146 66 L138 108 Z"
+                  fill="#c8a04a" stroke="#6b1f2a" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="62" y="108" width="76" height="10" rx="2" fill="#6b1f2a"/>
+            <circle cx="54" cy="66" r="5.5" fill="#6b1f2a"/>
+            <circle cx="100" cy="54" r="5.5" fill="#6b1f2a"/>
+            <circle cx="146" cy="66" r="5.5" fill="#6b1f2a"/>
+            <text x="100" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="20" font-weight="700" letter-spacing="2" fill="#6b1f2a">CROWNEST</text>
+            <text x="100" y="166" text-anchor="middle" font-family="Arial" font-size="9" letter-spacing="3" fill="#c8a04a">HOSPITALITY</text>
+          </svg>
+        </div>
+        <div class="swatch dark">
+          <svg width="160" height="160" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="94" fill="none" stroke="#dcbb6a" stroke-width="3"/>
+            <circle cx="100" cy="100" r="82" fill="none" stroke="#dcbb6a" stroke-width="1"/>
+            <path d="M62 108 L54 66 L78 86 L100 54 L122 86 L146 66 L138 108 Z"
+                  fill="#dcbb6a" stroke="#f8f4ec" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="62" y="108" width="76" height="10" rx="2" fill="#f8f4ec"/>
+            <circle cx="54" cy="66" r="5.5" fill="#f8f4ec"/>
+            <circle cx="100" cy="54" r="5.5" fill="#f8f4ec"/>
+            <circle cx="146" cy="66" r="5.5" fill="#f8f4ec"/>
+            <text x="100" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="20" font-weight="700" letter-spacing="2" fill="#fff">CROWNEST</text>
+            <text x="100" y="166" text-anchor="middle" font-family="Arial" font-size="9" letter-spacing="3" fill="#dcbb6a">HOSPITALITY</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ OPTION 4: Horizontal Lockup ============ -->
+    <div class="card">
+      <div class="tag">Option 4 — Horizontal Lockup</div>
+      <p class="desc">Icon + text side by side. Best for letterhead &amp; website header.</p>
+      <div class="swatches">
+        <div class="swatch light">
+          <svg width="240" height="95" viewBox="0 0 340 130">
+            <path d="M28 78 L20 40 L46 60 L64 30 L82 60 L108 40 L100 78 Z"
+                  fill="#c8a04a" stroke="#6b1f2a" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="28" y="78" width="72" height="9" rx="2" fill="#6b1f2a"/>
+            <rect x="126" y="30" width="2.5" height="66" fill="#c8a04a"/>
+            <text x="142" y="66" font-family="Georgia,serif" font-size="34" font-weight="700" fill="#6b1f2a">Crownest</text>
+            <text x="143" y="90" font-family="Arial" font-size="12.5" letter-spacing="5" fill="#c8a04a">HOSPITALITY LLP</text>
+          </svg>
+        </div>
+        <div class="swatch dark">
+          <svg width="240" height="95" viewBox="0 0 340 130">
+            <path d="M28 78 L20 40 L46 60 L64 30 L82 60 L108 40 L100 78 Z"
+                  fill="#dcbb6a" stroke="#f8f4ec" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="28" y="78" width="72" height="9" rx="2" fill="#f8f4ec"/>
+            <rect x="126" y="30" width="2.5" height="66" fill="#dcbb6a"/>
+            <text x="142" y="66" font-family="Georgia,serif" font-size="34" font-weight="700" fill="#fff">Crownest</text>
+            <text x="143" y="90" font-family="Arial" font-size="12.5" letter-spacing="5" fill="#dcbb6a">HOSPITALITY LLP</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
