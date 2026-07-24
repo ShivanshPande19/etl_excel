@@ -70,6 +70,8 @@ erDiagram
 | contact_user_id | FK→User | the client login (role=client) |
 | phone / email | string | |
 
+> **One client → many projects.** A `ClientAccount` can own multiple `Project`s (e.g. a chain ordering 4 trucks). The client login sees all trucks under their account. **Client UI implication:** when a client has more than one project, the app opens a **"My Trucks" list** first, then into the selected truck's dashboard. With exactly one, it can open that truck directly. All client detail data (progress, photos, designs, docs, tickets) is scoped per `project_id`.
+
 ---
 
 ## 3. Projects & Build
