@@ -81,27 +81,16 @@ def build():
     # ================= HEADER =================
     header = section.header
     header.is_linked_to_previous = False
-    # clear default empty paragraph
-    htbl = header.add_table(rows=1, cols=3, width=Inches(6.7))
+    # No logo for now: two columns (company name + GSTIN)
+    htbl = header.add_table(rows=1, cols=2, width=Inches(6.7))
     htbl.alignment = WD_TABLE_ALIGNMENT.CENTER
     htbl.autofit = False
-    widths = [Inches(1.1), Inches(3.9), Inches(1.7)]
+    widths = [Inches(4.9), Inches(1.8)]
     for i, w in enumerate(widths):
         htbl.columns[i].width = w
 
-    logo_cell, name_cell, gstin_cell = htbl.rows[0].cells
-    for c in (logo_cell, name_cell, gstin_cell):
-        for i, w in enumerate(widths):
-            pass
-        c.width = widths[[logo_cell, name_cell, gstin_cell].index(c)]
-
-    # logo
-    lp = logo_cell.paragraphs[0]
-    lp.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    try:
-        lp.add_run().add_picture(LOGO_PATH, width=Inches(0.95))
-    except Exception:
-        add_run(lp, "CROWNEST", size=12, bold=True, color=MAROON)
+    name_cell, gstin_cell = htbl.rows[0].cells
+    name_cell.width, gstin_cell.width = widths
 
     # company name
     np1 = name_cell.paragraphs[0]
