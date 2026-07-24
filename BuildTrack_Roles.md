@@ -211,7 +211,9 @@ Design language is consistent across all roles: warm beige canvas, cream cards, 
 
 **How they work:** Opens to a big progress ring and current status, browses build photos, approves designs, downloads documents, and can raise a request any time.
 
-**Screens (9):** My Truck (progress) · Build journey · Photos · **Approve design** · Documents · Raise request · Support · Notifications · Profile
+**Screens (10):** **My Trucks (list)** · Truck dashboard (progress) · Build journey · Photos · **Approve design** · Documents · Raise request · Support · Notifications · Profile
+
+> If the client has more than one truck, the app opens on **My Trucks** (a list of all their builds); tapping one opens that truck's dashboard. With a single truck it opens the dashboard directly.
 
 **Features**
 - Live progress % + current stage + ETA (and delay reasons if any)

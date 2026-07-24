@@ -4,7 +4,7 @@ exe=None
 for p in glob.glob('/root/.cache/ms-playwright/**/chrome-headless-shell',recursive=True):
     exe=p;break
 print('chromium:',exe)
-ids=['c1','c2','c3','c4','c5','c6','c7','c8','c9']
+ids=['cM','c1','c2','c3','c4','c5','c6','c7','c8','c9']
 with sync_playwright() as pw:
     b=pw.chromium.launch(executable_path=exe,args=['--no-sandbox','--force-color-profile=srgb'])
     pg=b.new_page(viewport={'width':1300,'height':1000},device_scale_factor=3)
