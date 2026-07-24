@@ -104,19 +104,21 @@ Design language is consistent across all roles: warm beige canvas, cream cards, 
 **Owns & manages**
 - Their assigned stages/tasks only
 - Progress photos
-- Logging every part they install (serial + bill + warranty)
+- Confirming each part **installed** into the truck (scan serial → linked to truck + stage). Bill/warranty are **not** re-entered here — Store already captured them at intake.
 - Submitting completed stages for PM approval
 
 **How they work:** Big-button, offline-friendly screens. Opens their current task, updates a checklist, adds photos, scans & logs each component, and marks the stage complete.
 
-**Screens (9):** My Tasks · Task detail (checklist) · Add photo · **Scan & Log Part** · Components (logged) · Mark complete · My week · Notifications · Profile
+**Screens (9):** My Tasks · Task detail (checklist) · Add photo · **Scan to install** · Components (installed) · Mark complete · My week · Notifications · Profile
 
 **Features**
 - My tasks (in-progress + up next) with offline sync
 - Stage checklist + progress
 - Add progress photo (works offline)
-- Scan serial → capture item, bill, warranty
+- **Scan to install**: scan a part's serial → it matches a component already logged by Store (bill on file) → confirm it's installed in this truck & stage
 - Mark stage complete → sends to PM for approval
+
+> **Store vs Workshop (clear split):** **Store** creates the component record — serial + bill + warranty — when goods arrive. **Workshop** only *scans to install* — linking that existing record to the truck & stage. No duplicate data entry.
 
 **Sees:** only their tasks. **Cannot:** see fleet data, costs, vendors.
 

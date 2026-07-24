@@ -163,7 +163,7 @@
 
       <div class="row" style="gap:11px;margin-top:14px">
         <div class="btn ghost" style="flex:1"><svg viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></svg> Photo</div>
-        <div class="btn lime" style="flex:1"><svg viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg> Log part</div>
+        <div class="btn lime" style="flex:1"><svg viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg> Install part</div>
       </div>
       <div class="btn dark" style="margin-top:11px"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Mark stage complete</div>
     </div>
@@ -195,29 +195,31 @@
     </div>
   </div>
 
-  <!-- w4 SCAN & LOG PART -->
+  <!-- w4 SCAN TO INSTALL -->
   <div class="screen" id="w4">
     <div class="statusbar"><span>9:41</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
     <div class="pad plain">
-      <div class="row between"><div class="hbtn"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></div><div class="pilltab">AZ-118</div></div>
-      <div class="h1" style="margin-top:14px">Log component</div>
+      <div class="row between"><div class="hbtn"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></div><div class="pilltab">AZ-118 · Electrical</div></div>
+      <div class="h1" style="margin-top:14px">Scan to install</div>
+      <div class="mut" style="font-size:13px;margin-top:4px">Confirm which part goes into this truck</div>
 
       <div class="capa" style="margin-top:14px;padding:22px 20px">
         <div class="cic"><svg viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></div>
         <div class="ctt">Scan serial / barcode</div>
-        <div class="cst">Serial auto-fills below</div>
+        <div class="cst">Matches a component logged by Store</div>
       </div>
 
-      <div class="drow" style="margin-top:14px">
-        <div class="field" style="flex:1.4"><div class="fl">Item</div><div class="fv">Samsung 42" TV</div></div>
-        <div class="field"><div class="fl">Serial</div><div class="fv">SN-88213</div></div>
+      <h3 class="sec">Matched component</h3>
+      <div class="card" style="padding:15px 16px">
+        <div class="row between"><div class="row" style="gap:12px"><div class="lic" style="background:var(--sky)"><svg viewBox="0 0 24 24" style="stroke:#123040"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg></div><div><div style="font-weight:600;font-size:14px">Samsung 42" TV</div><div class="mut" style="font-size:11.5px">SN-88213 · Sharma Traders</div></div></div><span class="tag lime"><i class="pdot"></i>Bill on file</span></div>
       </div>
-      <div class="field"><div class="fl">Vendor</div><div class="fv">Sharma Traders</div></div>
-      <div class="row" style="gap:11px">
-        <div class="btn ghost" style="flex:1;height:50px"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> Attach bill</div>
-        <div class="field" style="flex:1;margin-bottom:0"><div class="fl">Warranty</div><div class="fv">2 years</div></div>
+
+      <div class="drow" style="margin-top:12px">
+        <div class="field"><div class="fl">Install in</div><div class="fv">AZ-118</div></div>
+        <div class="field"><div class="fl">Stage</div><div class="fv">Electrical</div></div>
       </div>
-      <div class="btn lime" style="margin-top:12px"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Save to build</div>
+      <div class="btn lime" style="margin-top:4px"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Confirm installed</div>
+      <div class="mut" style="font-size:12px;text-align:center;margin-top:12px">Bill &amp; warranty already recorded by Store at intake</div>
     </div>
   </div>
 
@@ -225,7 +227,7 @@
   <div class="screen" id="w5">
     <div class="statusbar"><span>9:41</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
     <div class="pad">
-      <div class="row between"><div><div class="h1">Components</div><div class="mut" style="font-size:12.5px;margin-top:4px">Logged on AZ-118 · 14 parts</div></div><div class="hbtn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div></div>
+      <div class="row between"><div><div class="h1">Components</div><div class="mut" style="font-size:12.5px;margin-top:4px">Installed on AZ-118 · 14 parts</div></div><div class="hbtn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div></div>
 
       <div style="margin-top:16px"></div>
       <div class="lc"><div class="row between"><div class="row" style="gap:13px"><div class="lic" style="background:var(--sky)"><svg viewBox="0 0 24 24" style="stroke:#123040"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg></div><div><div style="font-weight:600;font-size:14px">Samsung 42" TV</div><div class="mut" style="font-size:11.5px">SN-88213-KD</div></div></div><span class="tag lime"><i class="pdot"></i>2 yr</span></div></div>
