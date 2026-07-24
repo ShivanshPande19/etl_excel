@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crownest Hospitality LLP — Letterhead</title>
+<style>
+  :root {
+    --maroon: #6b1f2a;
+    --maroon-d: #511620;
+    --gold: #c8a04a;
+    --gold-light: #dcbb6a;
+    --ink: #2b2b2b;
+    --muted: #6b7280;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e9ebef;
+    font-family: "Georgia", "Times New Roman", serif;
+    color: var(--ink);
+  }
+
+  /* A4 page */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 24px auto;
+    background: #fff;
+    position: relative;
+    padding: 20mm 20mm 26mm;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* subtle side accent bar */
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, var(--maroon), var(--gold));
+  }
+
+  /* ===== Header ===== */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--maroon);
+  }
+
+  .logo {
+    flex: 0 0 auto;
+    width: 96px;
+    height: 96px;
+  }
+
+  .brand { flex: 1 1 auto; }
+
+  .brand h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--maroon);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .brand h1 span { color: var(--gold); }
+
+  .brand .tagline {
+    margin-top: 7px;
+    font-size: 12.5px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: "Arial", sans-serif;
+  }
+
+  .gstin {
+    text-align: right;
+    font-family: "Arial", sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .gstin strong { color: var(--maroon); }
+
+  /* thin gold rule under header */
+  .rule-gold {
+    height: 2px;
+    background: var(--gold);
+    margin-top: 4px;
+  }
+
+  /* ===== Body (letter content area) ===== */
+  .body {
+    flex: 1 1 auto;
+    padding: 30px 2px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .body .date { margin-bottom: 26px; }
+
+  .placeholder {
+    color: #b4b4b4;
+    font-style: italic;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    border-top: 2px solid var(--maroon);
+    padding-top: 12px;
+    font-family: "Arial", sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-col { line-height: 1.6; }
+  .footer-col .label {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 9.5px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .footer-col a { color: var(--maroon); text-decoration: none; }
+
+  /* Print setup */
+  @page { size: A4; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      min-height: 100vh;
+    }
+    .no-print { display: none !important; }
+  }
+
+  .no-print {
+    max-width: 210mm;
+    margin: 0 auto 30px;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+  }
+  .no-print button {
+    background: var(--maroon);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+  }
+  .no-print button:hover { background: var(--maroon-d); }
+</style>
+</head>
+<body>
+
+  <div class="no-print">
+    <p style="margin:16px 0 10px;color:#555;font-size:13px;">
+      Tip: Click below and choose <strong>“Save as PDF”</strong> to get a print-ready letterhead.
+    </p>
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <div class="page">
+
+    <!-- ============ HEADER ============ -->
+    <header>
+      <!-- Option 1: Circular Crest logo (maroon & gold) -->
+      <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Crownest crest logo">
+        <circle cx="100" cy="100" r="94" fill="none" stroke="#6b1f2a" stroke-width="3"/>
+        <circle cx="100" cy="100" r="82" fill="none" stroke="#c8a04a" stroke-width="1.5"/>
+        <path d="M62 108 L54 66 L78 86 L100 54 L122 86 L146 66 L138 108 Z"
+              fill="#c8a04a" stroke="#6b1f2a" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="62" y="108" width="76" height="10" rx="2" fill="#6b1f2a"/>
+        <circle cx="54" cy="66" r="5.5" fill="#6b1f2a"/>
+        <circle cx="100" cy="54" r="5.5" fill="#6b1f2a"/>
+        <circle cx="146" cy="66" r="5.5" fill="#6b1f2a"/>
+        <text x="100" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="20" font-weight="700" letter-spacing="2" fill="#6b1f2a">CROWNEST</text>
+        <text x="100" y="166" text-anchor="middle" font-family="Arial" font-size="9" letter-spacing="3" fill="#c8a04a">HOSPITALITY</text>
+      </svg>
+
+      <div class="brand">
+        <h1>Crownest <span>Hospitality</span></h1>
+        <div class="tagline">Limited Liability Partnership</div>
+      </div>
+
+      <div class="gstin">
+        <strong>GSTIN</strong><br/>
+        09AAVFC2225N1ZX<br/>
+        <span style="color:#9aa0aa;">Greater Noida, U.P.</span>
+      </div>
+    </header>
+    <div class="rule-gold"></div>
+
+    <!-- ============ LETTER BODY ============ -->
+    <div class="body">
+      <div class="date">Date: _______________</div>
+
+      <!-- Apna letter yahan likhein (write your letter content here) -->
+      <p></p>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+      <div class="footer-row">
+        <div class="footer-col">
+          <span class="label">Registered Office</span>
+          Site 5, G-107, Surajpur Kasna Road,<br/>
+          Industrial Area, Greater Noida,<br/>
+          Gautam Buddha Nagar, Uttar Pradesh – 201312
+        </div>
+
+        <div class="footer-col">
+          <span class="label">Contact</span>
+          Tel: +91 99997 42752<br/>
+          <a href="mailto:info@crownesthospitality.com">info@crownesthospitality.com</a><br/>
+          <a href="mailto:abhishek@crownesthospitality.com">abhishek@crownesthospitality.com</a><br/>
+          <a href="mailto:puneet@crownesthospitality.com">puneet@crownesthospitality.com</a>
+        </div>
+
+        <div class="footer-col">
+          <span class="label">Designated Partners</span>
+          Abhishek Jindal<br/>
+          Puneet Singh Anand
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
