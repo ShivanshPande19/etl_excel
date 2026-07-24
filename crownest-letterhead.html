@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crownest Hospitality LLP — Letterhead</title>
+<style>
+  :root {
+    --navy: #14233f;
+    --gold: #b8892b;
+    --gold-light: #d4a943;
+    --ink: #2b2b2b;
+    --muted: #6b7280;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e9ebef;
+    font-family: "Georgia", "Times New Roman", serif;
+    color: var(--ink);
+  }
+
+  /* A4 page */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 24px auto;
+    background: #fff;
+    position: relative;
+    padding: 22mm 20mm 26mm;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* subtle side accent bar */
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, var(--navy), var(--gold));
+  }
+
+  /* ===== Header ===== */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .logo {
+    flex: 0 0 auto;
+    width: 74px;
+    height: 74px;
+  }
+
+  .brand { flex: 1 1 auto; }
+
+  .brand h1 {
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .brand h1 span { color: var(--gold); }
+
+  .brand .tagline {
+    margin-top: 6px;
+    font-size: 12.5px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: "Arial", sans-serif;
+  }
+
+  .gstin {
+    text-align: right;
+    font-family: "Arial", sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .gstin strong { color: var(--navy); }
+
+  /* thin gold rule under header */
+  .rule-gold {
+    height: 2px;
+    background: var(--gold);
+    margin-top: 4px;
+  }
+
+  /* ===== Body (letter content area) ===== */
+  .body {
+    flex: 1 1 auto;
+    padding: 30px 2px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .body .date { margin-bottom: 26px; }
+
+  .placeholder {
+    color: #b4b4b4;
+    font-style: italic;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    border-top: 2px solid var(--navy);
+    padding-top: 12px;
+    font-family: "Arial", sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-col { line-height: 1.6; }
+  .footer-col .label {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 9.5px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .footer-col a { color: var(--navy); text-decoration: none; }
+
+  /* Print setup */
+  @page { size: A4; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+      min-height: 100vh;
+    }
+    .no-print { display: none !important; }
+  }
+
+  .no-print {
+    max-width: 210mm;
+    margin: 0 auto 30px;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+  }
+  .no-print button {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+  }
+  .no-print button:hover { background: #0d1930; }
+</style>
+</head>
+<body>
+
+  <div class="no-print">
+    <p style="margin:16px 0 10px;color:#555;font-size:13px;">
+      Tip: Click below and choose <strong>“Save as PDF”</strong> to get a print-ready letterhead.
+    </p>
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <div class="page">
+
+    <!-- ============ HEADER ============ -->
+    <header>
+      <!-- Crown logo (inline SVG) -->
+      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Crownest logo">
+        <circle cx="50" cy="50" r="48" fill="none" stroke="#14233f" stroke-width="2"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#b8892b" stroke-width="1"/>
+        <!-- crown -->
+        <path d="M28 60 L24 34 L38 46 L50 28 L62 46 L76 34 L72 60 Z"
+              fill="#b8892b" stroke="#14233f" stroke-width="1.5" stroke-linejoin="round"/>
+        <rect x="28" y="60" width="44" height="6" fill="#14233f"/>
+        <circle cx="24" cy="34" r="3.5" fill="#14233f"/>
+        <circle cx="50" cy="28" r="3.5" fill="#14233f"/>
+        <circle cx="76" cy="34" r="3.5" fill="#14233f"/>
+      </svg>
+
+      <div class="brand">
+        <h1>Crownest <span>Hospitality</span></h1>
+        <div class="tagline">Limited Liability Partnership</div>
+      </div>
+
+      <div class="gstin">
+        <strong>GSTIN</strong><br/>
+        09AAVFC2225N1ZX<br/>
+        <span style="color:#9aa0aa;">Greater Noida, U.P.</span>
+      </div>
+    </header>
+    <div class="rule-gold"></div>
+
+    <!-- ============ LETTER BODY ============ -->
+    <div class="body">
+      <div class="date">Date: _______________</div>
+
+      <p class="placeholder">
+        [ Begin your letter here. This blank area is your writing space — address,
+        subject line, and body text can be typed in when you use this as a template. ]
+      </p>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+      <div class="footer-row">
+        <div class="footer-col">
+          <span class="label">Registered Office</span>
+          Site 5, G-107, Surajpur Kasna Road,<br/>
+          Industrial Area, Greater Noida,<br/>
+          Gautam Buddha Nagar, Uttar Pradesh – 201312
+        </div>
+
+        <div class="footer-col">
+          <span class="label">Contact</span>
+          Tel: +91 99997 42752<br/>
+          <a href="mailto:info@crownesthospitality.com">info@crownesthospitality.com</a><br/>
+          www.crownesthospitality.com
+        </div>
+
+        <div class="footer-col">
+          <span class="label">Designated Partners</span>
+          Abhishek Jindal<br/>
+          Puneet Singh Anand
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
