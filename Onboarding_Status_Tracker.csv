@@ -1,11 +1,12 @@
-Brand,Term Sheet,Agreement,FSSAI,Final Menu,PDC,Employee List,Medicals,Police Verification,Pending Count,Remarks
-Milkbar,Done,Done,Pending,Pending,Pending,Pending,Pending,Pending,6,
-Big Bear,Done,Done,Done,Pending,Pending,Pending,Pending,Pending,5,
-BBF,Pending,Pending,Pending,Pending,Pending,Pending,Pending,Pending,8,Term sheet & agreement not signed by owner
-Koby's,Done,Done,Done,Done,Pending,Pending,Pending,Pending,4,
-Eggspert,Done,Pending,Pending,Pending,Pending,Pending,Done,Pending,6,Agreement not signed
-Chatpata Affair,Pending,Pending,Pending,Done,Pending,Pending,Pending,Pending,7,Term sheet & agreement not signed
-The Coffee Vault,Done,Done,Done,Pending,Pending,Pending,Pending,Pending,4,
-Og Pizza,Done,Done,Done,Done,Pending,Done,Pending,Pending,3,PDC to be collected from truck
-The Momo Box,Pending,Pending,Done,Pending,Pending,Pending,Pending,Pending,7,Term sheet & agreement not signed by owner
-Burrito Bros,Pending,Pending,Done,Pending,Pending,Pending,Pending,Pending,7,Term sheet & agreement not signed
+﻿Brand,Term Sheet,Agreement,FSSAI,Final Menu,PDC,Employee List,Medicals,Police Verification,Done,Pending,Progress %,Status,Remarks
+Milkbar,Done,Done,Pending,Pending,Pending,Pending,Pending,Pending,2,6,25%,In Progress,
+Big Bear,Done,Done,Done,Pending,Pending,Pending,Pending,Pending,3,5,38%,In Progress,
+BBF,Pending,Pending,Pending,Pending,Pending,Pending,Pending,Pending,0,8,0%,Not Started,Term sheet & agreement not signed by owner
+Koby's,Done,Done,Done,Done,Pending,Pending,Pending,Pending,4,4,50%,In Progress,
+Eggspert,Done,Pending,Pending,Pending,Pending,Pending,Done,Pending,2,6,25%,In Progress,Agreement not signed
+Chatpata Affair,Pending,Pending,Pending,Done,Pending,Pending,Pending,Pending,1,7,12%,In Progress,Term sheet & agreement not signed
+The Coffee Vault,Done,Done,Done,Pending,Pending,Pending,Pending,Pending,3,5,38%,In Progress,
+Og Pizza,Done,Done,Done,Done,Pending,Done,Pending,Pending,5,3,62%,In Progress,PDC to be collected from truck
+The Momo Box,Pending,Pending,Done,Pending,Pending,Pending,Pending,Pending,1,7,12%,In Progress,Term sheet & agreement not signed by owner
+Burrito Bros,Pending,Pending,Done,Pending,Pending,Pending,Pending,Pending,1,7,12%,In Progress,Term sheet & agreement not signed
+TOTAL DONE,6/10,5/10,6/10,3/10,0/10,1/10,1/10,0/10,22,58,28%,OVERALL,
