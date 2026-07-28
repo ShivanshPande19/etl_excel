@@ -42,8 +42,9 @@
   }
   /* watermark */
   .card .wm{
-    position:absolute;right:-40px;bottom:34px;width:230px;height:230px;
-    opacity:.06;pointer-events:none;z-index:0;
+    position:absolute;left:50%;top:57%;transform:translate(-50%,-50%);
+    width:255px;height:255px;
+    opacity:.05;pointer-events:none;z-index:0;
   }
   .card .wm-real{object-fit:contain;}
 
@@ -188,8 +189,8 @@
   const wave = '<svg class="wave" viewBox="0 0 340 34" preserveAspectRatio="none"><path d="M0,20 C90,42 250,-2 340,20 L340,34 L0,34 Z" fill="#fff"/></svg>';
   // Real ETL logo file (assets/etl-logo.png). If missing, the SVG fallback shows automatically.
   const LOGO_SRC = "assets/etl-logo.png";
-  const wmLogo   = `<svg class="wm wm-fb"><use href="#etl-logo"/></svg><img class="wm wm-real" src="${LOGO_SRC}" alt="" onerror="this.style.display='none'">`;
-  const badgeLogo= `<div class="logo-badge"><svg class="logo-fb"><use href="#etl-logo"/></svg><img class="logo-real" src="${LOGO_SRC}" alt="ETL logo" onerror="this.style.display='none'"></div>`;
+  const wmLogo   = `<svg class="wm wm-fb"><use href="#etl-logo"/></svg><img class="wm wm-real" src="${LOGO_SRC}" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'">`;
+  const badgeLogo= `<div class="logo-badge"><svg class="logo-fb"><use href="#etl-logo"/></svg><img class="logo-real" src="${LOGO_SRC}" alt="ETL logo" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'"></div>`;
 
   const el = document.getElementById("cards");
   staff.forEach(p => {
