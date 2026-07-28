@@ -43,8 +43,9 @@
   /* watermark */
   .card .wm{
     position:absolute;right:-40px;bottom:34px;width:230px;height:230px;
-    opacity:.05;pointer-events:none;z-index:0;
+    opacity:.06;pointer-events:none;z-index:0;
   }
+  .card .wm-real{object-fit:contain;}
 
   /* Header */
   .card-top{
@@ -54,13 +55,13 @@
     padding:20px 16px 54px;
   }
   .logo-badge{
-    width:78px;height:78px;border-radius:50%;
-    background:#fff;margin:0 auto 10px;
-    display:flex;align-items:center;justify-content:center;
+    width:88px;height:88px;border-radius:50%;
+    background:#fff;margin:0 auto 10px;position:relative;overflow:hidden;
     box-shadow:0 4px 12px rgba(0,0,0,.25);
     border:3px solid rgba(255,255,255,.85);
   }
-  .logo-badge svg{width:62px;height:62px;}
+  .logo-badge .logo-real{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:5px;background:#fff;z-index:2;}
+  .logo-badge .logo-fb{position:absolute;inset:0;margin:auto;width:68px;height:68px;z-index:1;}
   .brand-name{font-size:18px;font-weight:800;letter-spacing:3px;}
   .brand-sub{font-size:9px;letter-spacing:4px;opacity:.9;margin-top:3px;}
   /* wave divider */
@@ -185,7 +186,10 @@
   const icCam   = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>';
 
   const wave = '<svg class="wave" viewBox="0 0 340 34" preserveAspectRatio="none"><path d="M0,20 C90,42 250,-2 340,20 L340,34 L0,34 Z" fill="#fff"/></svg>';
-  const wmLogo = '<svg class="wm"><use href="#etl-logo"/></svg>';
+  // Real ETL logo file (assets/etl-logo.png). If missing, the SVG fallback shows automatically.
+  const LOGO_SRC = "assets/etl-logo.png";
+  const wmLogo   = `<svg class="wm wm-fb"><use href="#etl-logo"/></svg><img class="wm wm-real" src="${LOGO_SRC}" alt="" onerror="this.style.display='none'">`;
+  const badgeLogo= `<div class="logo-badge"><svg class="logo-fb"><use href="#etl-logo"/></svg><img class="logo-real" src="${LOGO_SRC}" alt="ETL logo" onerror="this.style.display='none'"></div>`;
 
   const el = document.getElementById("cards");
   staff.forEach(p => {
@@ -197,7 +201,7 @@
       <div class="card">
         ${wmLogo}
         <div class="card-top">
-          <div class="logo-badge"><svg><use href="#etl-logo"/></svg></div>
+          ${badgeLogo}
           <div class="brand-name">EAT&nbsp;TRUCK&nbsp;LOVE</div>
           <div class="brand-sub">BY AZIMUTH</div>
           ${wave}
