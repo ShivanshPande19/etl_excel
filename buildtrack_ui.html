@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Azimuth BuildTrack — UI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+  :root{
+    --bg:#EAE7DB; --card:#FBFAF5; --card2:#F3F1E7; --ink:#1D1C18; --mut:#918B7C; --mut2:#B4AE9E; --line:#E7E3D5;
+    --lime:#CDEC63; --sky:#A9D9EF; --lav:#CFB6EF; --pink:#F3C3DD; --coral:#F2A585; --amber:#F4D07A;
+    --track:#ECE9DD;
+  }
+  body{font-family:'Inter',system-ui,sans-serif;background:#DCD8CB;color:var(--ink);}
+  .gallery{display:flex;flex-wrap:wrap;gap:40px;padding:40px;}
+  .screen{position:relative;width:390px;height:844px;overflow:hidden;background:var(--bg);border-radius:46px;}
+  .pad{position:relative;z-index:1;padding:60px 20px 110px;height:100%;}
+  .statusbar{position:absolute;top:0;left:0;right:0;height:52px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:13px;font-weight:600;z-index:9;font-family:'Space Grotesk';}
+  .dots{display:flex;gap:5px;align-items:center;}
+  .bar{width:3px;height:9px;background:var(--ink);border-radius:2px;display:inline-block;}.bar.s2{height:7px}.bar.s3{height:11px}
+  .bat{width:22px;height:11px;border:1.6px solid var(--ink);border-radius:3px;position:relative;display:inline-block;margin-left:3px}
+  .bat:after{content:'';position:absolute;top:2px;left:2px;bottom:2px;width:13px;background:var(--ink);border-radius:1px}
+
+  .disp{font-family:'Space Grotesk';}
+  .eyebrow{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut);font-weight:600;}
+  .h1{font-family:'Space Grotesk';font-size:30px;font-weight:500;letter-spacing:-.6px;line-height:1.05;}
+  .mut{color:var(--mut)} .row{display:flex;align-items:center} .between{justify-content:space-between}
+
+  .hbtn{width:42px;height:42px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;}
+  .hbtn svg{width:19px;height:19px;stroke:var(--ink);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#CFB6EF,#A9D9EF);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:600;font-size:16px;color:#2a2438;}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:22px;box-shadow:0 14px 34px rgba(90,78,45,.07);}
+  .pilltab{display:inline-flex;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--mut);}
+
+  .code{width:34px;height:34px;border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;}
+  .code svg{width:15px;height:15px;stroke:var(--mut);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+  .huge{font-family:'Space Grotesk';font-size:56px;font-weight:500;letter-spacing:-2px;line-height:.9;}
+  .huge .pct{font-size:26px;}
+
+  /* data bars */
+  .brow{margin-top:12px;}
+  .btrack{position:relative;height:46px;border-radius:999px;background:var(--track);display:flex;align-items:center;}
+  .btrack.hatch{background-image:repeating-linear-gradient(115deg,#E1DDCE 0 2px,#ECE9DD 2px 8px);}
+  .btrack.dots{background-image:radial-gradient(#D4CFBE 1.5px,transparent 1.7px);background-size:12px 12px;}
+  .blabel{position:absolute;left:18px;font-size:13.5px;font-weight:600;color:var(--ink);}
+  .pp{position:absolute;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#1d1c18;box-shadow:0 4px 10px rgba(90,78,45,.10);}
+  .pp .pdot{width:6px;height:6px;border-radius:50%;background:#1d1c18;}
+  .pp.lime{background:var(--lime)}.pp.sky{background:var(--sky)}.pp.lav{background:var(--lav)}.pp.pink{background:var(--pink)}.pp.coral{background:var(--coral)}.pp.amber{background:var(--amber)}
+
+  .tag{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;padding:6px 11px;border-radius:999px;font-family:'Space Grotesk';}
+  .tag .pdot{width:6px;height:6px;border-radius:50%;background:#1d1c18;}
+  .tag.lime{background:var(--lime)}.tag.sky{background:var(--sky)}.tag.coral{background:var(--coral)}.tag.pink{background:var(--pink)}.tag.amber{background:var(--amber)}
+
+  .att{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px 18px;margin-bottom:11px;box-shadow:0 10px 26px rgba(90,78,45,.06);}
+  .att h4{font-size:15px;font-weight:600;} .att p{font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45;}
+
+  .tabbar{position:absolute;bottom:0;left:0;right:0;padding:14px 18px 24px;display:flex;align-items:center;gap:12px;}
+  .navpill{flex:1;height:64px;background:var(--card);border:1px solid var(--line);border-radius:999px;box-shadow:0 12px 28px rgba(90,78,45,.12);display:flex;align-items:center;justify-content:space-between;padding:0 10px;}
+  .ni{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;min-width:48px;border-radius:999px;color:var(--mut);}
+  .ni svg{width:23px;height:23px;stroke:var(--mut);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .ni.on{background:var(--card2);padding:0 18px;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);}
+  .ni.on svg{stroke:var(--ink);}
+  .ni.on span{font-size:13.5px;font-weight:600;font-family:'Space Grotesk';}
+  .fab{width:60px;height:60px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px rgba(29,28,24,.34);flex-shrink:0;}
+  .fab svg{width:26px;height:26px;stroke:#F3F1E7;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+
+  .icon{width:48px;height:48px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--card2);}
+  .icon svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+
+  .timeline{margin-top:4px}
+  .tl{position:relative;padding:0 0 20px 32px;}
+  .tl:before{content:'';position:absolute;left:10px;top:20px;bottom:-2px;width:2px;background:var(--line);}
+  .tl.last:before{display:none}
+  .tl .b{position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card2);border:1.5px solid var(--line);}
+  .tl.done .b{background:var(--lime);border-color:transparent}
+  .tl.done .b svg{width:11px;height:11px;stroke:#1d1c18;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .tl.now .b{background:var(--ink);border-color:transparent}
+  .tl.now .b:after{content:'';width:7px;height:7px;border-radius:50%;background:var(--lime)}
+  .tl .s{font-size:15px;font-weight:600} .tl.todo .s{color:var(--mut2);font-weight:500}
+  .tl .d{font-size:11.5px;color:var(--mut);margin-top:1px}
+
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;height:54px;border-radius:18px;font-size:15px;font-weight:600;font-family:'Space Grotesk';}
+  .btn.lime{background:var(--lime);color:#1d1c18;}
+  .btn.dark{background:var(--ink);color:#F3F1E7;}
+  .btn.ghost{background:var(--card);border:1px solid var(--line);color:var(--ink);}
+  .btn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;}
+
+  .kv{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+  .kv+.kv{border-top:1px solid var(--line)}
+  .kv .k{font-size:13px;color:var(--mut)} .kv .v{font-size:14px;font-weight:600;font-family:'Space Grotesk'}
+  .thumb{flex:1;height:82px;border-radius:20px;}
+  h3.sec{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mut);font-weight:600;margin:22px 6px 12px}
+</style>
+</head>
+<body>
+<div class="gallery">
+
+  <!-- 1. DASHBOARD -->
+  <div class="screen" id="s1">
+    <div class="statusbar"><span>9:54</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
+    <div class="pad">
+      <div class="row between">
+        <div class="eyebrow">Home</div>
+        <div class="row" style="gap:10px">
+          <div class="hbtn"><svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg></div>
+          <div class="hbtn"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+          <div class="av">S</div>
+        </div>
+      </div>
+
+      <div class="row between" style="margin-top:16px;align-items:flex-end">
+        <div class="h1">Fleet<br>Monitor</div>
+        <div class="pilltab">This week</div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <div class="row between"><div class="eyebrow">Build status</div><div class="code"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/><path d="m15 6-6 6 6 6" transform="translate(-6 0)"/></svg></div></div>
+        <div style="margin-top:14px"><span class="huge">35</span> <span class="mut" style="font-size:14px;font-weight:500">Active<br>builds</span></div>
+
+        <div class="brow"><div class="btrack hatch"><span class="blabel">On-track</span><span class="pp lime" style="left:60%"><i class="pdot"></i>63%</span></div></div>
+        <div class="brow"><div class="btrack dots"><span class="blabel">At-risk</span><span class="pp sky" style="left:26%"><i class="pdot"></i>26%</span></div></div>
+        <div class="brow"><div class="btrack"><span class="blabel">Delayed</span><span class="pp coral" style="left:40%"><i class="pdot"></i>11%</span></div></div>
+      </div>
+
+      <h3 class="sec">Needs attention</h3>
+      <div class="att"><div class="row between"><h4>AZ-118 · Chai Point</h4><span class="tag coral"><i class="pdot"></i>Order today</span></div><p>Order the espresso machine today — 45-day lead time.</p></div>
+      <div class="att"><div class="row between"><h4>AZ-104 · Momo Hub</h4><span class="tag amber"><i class="pdot"></i>At-risk</span></div><p>Electrical stage running 2 days behind schedule.</p></div>
+    </div>
+    <div class="tabbar">
+      <div class="navpill">
+        <div class="ni on"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10h14V10"/></svg><span>Home</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      </div>
+      <div class="fab"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+    </div>
+  </div>
+
+  <!-- 2. PROJECT DETAIL -->
+  <div class="screen" id="s2">
+    <div class="statusbar"><span>9:54</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
+    <div class="pad">
+      <div class="row between">
+        <div class="hbtn"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></div>
+        <div class="pilltab">AZ-118</div>
+      </div>
+      <div class="row between" style="margin-top:16px;align-items:flex-end">
+        <div class="h1">Chai Point<br>Truck</div>
+        <span class="tag lime"><i class="pdot"></i>On-track</span>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <div class="row between"><div class="eyebrow">Progress</div><div class="code"><svg viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></div></div>
+        <div class="row between" style="margin-top:14px;align-items:flex-end">
+          <div><span class="huge">62<span class="pct">%</span></span><div class="mut" style="font-size:13px;margin-top:8px">Complete · currently <b style="color:var(--ink)">Electrical work</b></div></div>
+        </div>
+        <div class="brow" style="margin-top:16px"><div class="btrack hatch"><span class="pp lime" style="left:56%"><i class="pdot"></i>62%</span></div></div>
+        <div class="row between" style="margin-top:14px"><span class="mut" style="font-size:12.5px">Delivery date</span><span class="disp" style="font-weight:600;font-size:15px">30 August</span></div>
+      </div>
+
+      <h3 class="sec">Build stages</h3>
+      <div class="timeline">
+        <div class="tl done"><span class="b"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div class="s">Design & Layout</div><div class="d">Completed 2 Aug</div></div>
+        <div class="tl done"><span class="b"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div class="s">Chassis & Structure</div><div class="d">Completed 11 Aug</div></div>
+        <div class="tl done"><span class="b"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div class="s">Exterior cladding</div><div class="d">Completed 14 Aug</div></div>
+        <div class="tl now"><span class="b"></span><div class="s">Electrical work</div><div class="d">In progress · started 15 Aug</div></div>
+        <div class="tl todo"><span class="b"></span><div class="s">Interior & Equipment</div><div class="d">Starts 19 Aug</div></div>
+        <div class="tl todo last"><span class="b"></span><div class="s">Paint · Testing · Delivery</div><div class="d">Est. 26–30 Aug</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. PROCUREMENT -->
+  <div class="screen" id="s3">
+    <div class="statusbar"><span>9:54</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
+    <div class="pad">
+      <div class="row between"><div class="eyebrow">Procurement</div>
+        <div class="row" style="gap:10px"><div class="hbtn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><div class="av">S</div></div>
+      </div>
+      <div class="h1" style="margin-top:14px">To Order</div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="row between"><div class="eyebrow">Priority</div><span class="tag coral"><i class="pdot"></i>Order today</span></div>
+        <div class="disp" style="font-size:21px;font-weight:600;margin-top:12px;letter-spacing:-.4px">Espresso machine</div>
+        <p class="mut" style="font-size:12.5px;margin-top:4px">Custom · 45-day lead · install by 22 Aug</p>
+        <div class="brow" style="margin-top:14px"><div class="btrack dots"><span class="blabel">Lead time used</span><span class="pp coral" style="left:70%"><i class="pdot"></i>92%</span></div></div>
+        <div class="btn lime" style="margin-top:16px"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg> Create Purchase Order</div>
+      </div>
+
+      <div class="att" style="margin-top:14px"><div class="row between"><h4>Kitchen equipment set</h4><span class="tag amber"><i class="pdot"></i>2 days</span></div><p>AZ-118 · order by 18 Aug</p></div>
+      <div class="att"><div class="row between"><h4>LED TV 42"</h4><span class="tag lime"><i class="pdot"></i>On time</span></div><p>AZ-118 · order by 20 Aug</p></div>
+
+      <h3 class="sec">Vendor performance</h3>
+      <div class="card" style="padding:18px 22px"><div class="row between"><div class="row" style="gap:14px"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></div><div><div style="font-weight:600;font-size:15px">Sharma Traders</div><div class="mut" style="font-size:12px">On-time delivery</div></div></div><span class="pp lime" style="position:static;transform:none"><i class="pdot"></i>92%</span></div></div>
+    </div>
+    <div class="tabbar">
+      <div class="navpill">
+        <div class="ni"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10h14V10"/></svg></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <div class="ni on"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Procure</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      </div>
+      <div class="fab"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+    </div>
+  </div>
+
+  <!-- 4. TRACEABILITY -->
+  <div class="screen" id="s4">
+    <div class="statusbar"><span>9:54</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
+    <div class="pad">
+      <div class="row between"><div class="hbtn"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></div><div class="pilltab">AZ-098</div></div>
+      <div class="row between" style="margin-top:16px;align-items:flex-end">
+        <div><div class="eyebrow">Component</div><div class="h1" style="margin-top:4px">Samsung 42"</div></div>
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+      </div>
+
+      <div class="card" style="margin-top:18px;padding:8px 22px">
+        <div class="kv"><span class="k">Model</span><span class="v">UA42-XYZ</span></div>
+        <div class="kv"><span class="k">Serial number</span><span class="v">SN-88213-KD</span></div>
+        <div class="kv"><span class="k">Vendor</span><span class="v">Sharma Traders</span></div>
+        <div class="kv"><span class="k">Installed</span><span class="v">12 Aug 2026</span></div>
+      </div>
+
+      <div class="card" style="margin-top:12px;background:var(--lime);border-color:transparent">
+        <div class="row between"><div class="eyebrow" style="color:#3a4a12">Warranty</div><span class="tag" style="background:#1d1c18;color:var(--lime)"><i class="pdot" style="background:var(--lime)"></i>Active</span></div>
+        <div class="disp" style="font-size:22px;font-weight:600;margin-top:10px;letter-spacing:-.4px">Valid till 11 Aug 2028</div>
+        <div style="font-size:12.5px;margin-top:2px;color:#41500f">2 years remaining</div>
+      </div>
+
+      <div class="btn ghost" style="margin-top:12px"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> View Bill / Invoice</div>
+
+      <div class="card" style="margin-top:12px;background:var(--card2)">
+        <div class="row" style="gap:14px"><div class="icon" style="background:var(--coral)"><svg viewBox="0 0 24 24" style="stroke:#5a2410"><path d="m21.7 18-9-15a1.9 1.9 0 0 0-3.4 0l-9 15A2 2 0 0 0 3 21h18a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
+        <div style="flex:1"><div style="font-weight:600;font-size:14.5px">Same model in 25 trucks</div><div class="mut" style="font-size:12.5px;margin-top:2px">Tap to run recall check</div></div>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4AE9E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CLIENT -->
+  <div class="screen" id="s5">
+    <div class="statusbar"><span>9:54</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
+    <div class="pad">
+      <div class="row between"><div class="eyebrow">Your build</div>
+        <div class="row" style="gap:10px"><div class="hbtn"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg></div><div class="av" style="background:linear-gradient(135deg,#F3C3DD,#F2A585)">R</div></div>
+      </div>
+      <div class="h1" style="margin-top:14px">Chai Point<br>Truck</div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="row between"><div class="eyebrow">Completed</div><span class="tag lime"><i class="pdot"></i>On track</span></div>
+        <div style="margin-top:12px"><span class="huge">62<span class="pct">%</span></span></div>
+        <div class="mut" style="font-size:13px;margin-top:10px">Currently: <b style="color:var(--ink)">Electrical work</b> · delivery 30 Aug</div>
+        <div class="brow" style="margin-top:14px"><div class="btrack hatch"><span class="pp lime" style="left:56%"><i class="pdot"></i>62%</span></div></div>
+      </div>
+
+      <h3 class="sec">Latest progress</h3>
+      <div class="row" style="gap:11px">
+        <div class="thumb" style="background:linear-gradient(135deg,#D9D3C0,#CFB6EF)"></div>
+        <div class="thumb" style="background:linear-gradient(135deg,#A9D9EF,#CDEC63)"></div>
+        <div class="thumb" style="background:linear-gradient(135deg,#F3C3DD,#F2A585)"></div>
+      </div>
+
+      <div class="card" style="margin-top:16px;padding:18px 20px">
+        <div class="row" style="gap:14px"><div class="icon" style="background:var(--lime)"><svg viewBox="0 0 24 24" style="stroke:#3a4a12"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+        <div style="flex:1"><div style="font-weight:600;font-size:15px">Approve interior design</div><div class="mut" style="font-size:12.5px;margin-top:1px">Waiting for your approval</div></div>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4AE9E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+      </div>
+    </div>
+    <div class="tabbar">
+      <div class="navpill">
+        <div class="ni on"><svg viewBox="0 0 24 24"><path d="M12 2v4"/><circle cx="12" cy="14" r="8"/><path d="M12 14l3-3"/></svg><span>Progress</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      </div>
+      <div class="fab"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5z"/></svg></div>
+    </div>
+  </div>
+
+  <!-- 6. WORKSHOP -->
+  <div class="screen" id="s6">
+    <div class="statusbar"><span>9:54</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
+    <div class="pad">
+      <div class="row between"><div class="eyebrow">Workshop · Bay 3</div><span class="tag amber"><i class="pdot"></i>In progress</span></div>
+      <div class="h1" style="margin-top:14px">My Task</div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="eyebrow">AZ-118 · Chai Point</div>
+        <div class="disp" style="font-size:24px;font-weight:600;margin:10px 0 4px;letter-spacing:-.5px">Electrical components</div>
+        <div class="mut" style="font-size:12.5px">Started 15 Aug · due 18 Aug</div>
+        <div class="brow" style="margin-top:14px"><div class="btrack dots"><span class="blabel">Stage progress</span><span class="pp lime" style="left:44%"><i class="pdot"></i>50%</span></div></div>
+      </div>
+
+      <div class="btn lime" style="margin-top:16px"><svg viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></svg> Add progress photo</div>
+
+      <div class="card" style="margin-top:12px;padding:18px 20px">
+        <div class="row" style="gap:14px"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></div>
+        <div style="flex:1"><div style="font-weight:600;font-size:15px">Log a component</div><div class="mut" style="font-size:12px;margin-top:2px">Scan serial · attach bill · warranty</div></div></div>
+        <div class="btn ghost" style="margin-top:14px"><svg viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg> Scan & Log Part</div>
+      </div>
+
+      <div class="btn dark" style="margin-top:12px"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Mark stage complete</div>
+      <div class="row" style="justify-content:center;gap:8px;margin-top:16px;color:var(--mut);font-size:12px;font-weight:500"><span style="width:8px;height:8px;border-radius:50%;background:var(--lime);display:inline-block"></span> Works offline · syncs automatically</div>
+    </div>
+    <div class="tabbar">
+      <div class="navpill">
+        <div class="ni"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10h14V10"/></svg></div>
+        <div class="ni on"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span>Tasks</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/></svg></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      </div>
+      <div class="fab"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

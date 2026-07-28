@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BuildTrack — Sample (Finance-inspired)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+  :root{
+    --bg:#ECEDEF; --card:#FFFFFF; --ink:#17181B; --mut:#8B8E95; --mut2:#B6B9BF; --line:#EDEEF0;
+    --blue:#2F6BF6; --bluebg:#E9F0FE; --dark:#191A1D; --green:#1FA971; --greenbg:#E6F6EF; --red:#E5544B; --redbg:#FCEBEA; --amberbg:#FEF3E2; --amber:#D98A22;
+  }
+  body{font-family:'Inter',system-ui,sans-serif;background:#D9DADD;color:var(--ink);}
+  .gallery{display:flex;flex-wrap:wrap;gap:44px;padding:44px;}
+  .screen{position:relative;width:390px;height:844px;overflow:hidden;background:var(--bg);border-radius:46px;}
+  .pad{position:relative;z-index:1;padding:58px 20px 108px;height:100%;}
+  .statusbar{position:absolute;top:0;left:0;right:0;height:52px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:13px;font-weight:700;z-index:9;}
+  .dots{display:flex;gap:5px;align-items:center;}
+  .bar{width:3px;height:9px;background:var(--ink);border-radius:2px;display:inline-block;}.bar.s2{height:7px}.bar.s3{height:11px}
+  .bat{width:22px;height:11px;border:1.6px solid var(--ink);border-radius:3px;position:relative;display:inline-block;margin-left:3px}
+  .bat:after{content:'';position:absolute;top:2px;left:2px;bottom:2px;width:13px;background:var(--ink);border-radius:1px}
+  .row{display:flex;align-items:center}.between{justify-content:space-between}.mut{color:var(--mut)}
+
+  .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#9FB8FF,#6D8CF5);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;}
+  .cbtn{width:44px;height:44px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(30,30,40,.06);position:relative;}
+  .cbtn svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .badge{position:absolute;top:-2px;right:-2px;min-width:18px;height:18px;border-radius:9px;background:var(--red);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid var(--bg);}
+
+  .hero{border-radius:28px;background:linear-gradient(145deg,#26282C 0%,#151619 60%,#0F1012 100%);color:#fff;padding:22px;position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(20,20,25,.28);}
+  .hero:before{content:'';position:absolute;top:-40px;right:-30px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);}
+  .hero .lbl{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;}
+  .hero .big{font-size:24px;font-weight:700;letter-spacing:-.5px;margin-top:12px;}
+  .hero .sub{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:2px;}
+  .hbar{height:8px;border-radius:6px;background:rgba(255,255,255,.14);margin-top:18px;overflow:hidden;}
+  .hbar i{display:block;height:100%;width:62%;border-radius:6px;background:linear-gradient(90deg,#6D8CF5,#9FB8FF);}
+  .hrow{display:flex;justify-content:space-between;margin-top:12px;font-size:12.5px;}
+  .hrow b{font-weight:700;font-size:14px;}
+
+  .qa{display:flex;gap:11px;margin-top:16px;}
+  .qcard{flex:1;background:var(--card);border-radius:20px;padding:14px 8px;text-align:center;box-shadow:0 8px 20px rgba(30,30,40,.05);}
+  .qcard .ic{width:38px;height:38px;border-radius:12px;background:#F2F3F5;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;}
+  .qcard .ic svg{width:19px;height:19px;stroke:var(--ink);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .qcard .t{font-size:12px;font-weight:600;}
+
+  .card{background:var(--card);border-radius:24px;padding:18px;box-shadow:0 10px 26px rgba(30,30,40,.05);}
+  h3.sec{font-size:16px;font-weight:700;letter-spacing:-.3px;margin:18px 4px 11px;}
+  .lbl2{font-size:13px;font-weight:600;}
+
+  .prog{height:10px;border-radius:6px;background:#EEF0F3;position:relative;overflow:hidden;margin:12px 0 10px;}
+  .prog i{position:absolute;left:0;top:0;bottom:0;width:62%;border-radius:6px;background:linear-gradient(90deg,#2F6BF6,#5B8BFF);}
+  .prog .hatch{position:absolute;top:0;bottom:0;left:62%;right:0;background-image:repeating-linear-gradient(115deg,#DCE0E6 0 2px,#EEF0F3 2px 7px);}
+
+  .li{display:flex;align-items:center;gap:13px;background:var(--card);border-radius:20px;padding:14px;margin-bottom:11px;box-shadow:0 8px 20px rgba(30,30,40,.045);}
+  .li .lic{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .li .lic svg{width:21px;height:21px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .li .t{font-size:14px;font-weight:600;} .li .s{font-size:12px;color:var(--mut);margin-top:2px;}
+  .stat-pill{font-size:12px;font-weight:700;padding:6px 11px;border-radius:999px;white-space:nowrap;}
+  .sp.green{background:var(--greenbg);color:var(--green)} .sp.blue{background:var(--bluebg);color:var(--blue)} .sp.red{background:var(--redbg);color:var(--red)} .sp.amber{background:var(--amberbg);color:var(--amber)}
+
+  /* analytics */
+  .big-num{font-size:34px;font-weight:800;letter-spacing:-1px;}
+  .chart{background:var(--card);border-radius:24px;padding:18px 14px 12px;box-shadow:0 10px 26px rgba(30,30,40,.05);}
+  .three{display:flex;gap:10px;margin-top:14px;}
+  .three .c{flex:1;background:var(--card);border-radius:18px;padding:13px;text-align:center;box-shadow:0 8px 18px rgba(30,30,40,.045);}
+  .three .c .n{font-size:20px;font-weight:800;} .three .c .l{font-size:11px;color:var(--mut);margin-top:3px;font-weight:500;}
+  .seg{display:flex;background:#E6E7EA;border-radius:16px;padding:5px;margin:20px 0 14px;}
+  .seg .s{flex:1;text-align:center;padding:10px;border-radius:12px;font-size:13px;font-weight:600;color:var(--mut);}
+  .seg .s.on{background:var(--card);color:var(--ink);box-shadow:0 4px 10px rgba(30,30,40,.06);}
+
+  /* nav (OUR navbar: pill + action button) */
+  .tabbar{position:absolute;bottom:0;left:0;right:0;padding:16px 18px 24px;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,rgba(236,237,239,0),var(--bg) 42%);}
+  .navpill{flex:1;height:64px;background:var(--card);border-radius:999px;box-shadow:0 14px 30px rgba(30,30,40,.12);display:flex;align-items:center;justify-content:space-between;padding:0 10px;}
+  .ni{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;min-width:48px;border-radius:999px;color:var(--mut2);}
+  .ni svg{width:23px;height:23px;stroke:var(--mut2);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .ni.on{background:var(--ink);padding:0 18px;color:#fff;}
+  .ni.on svg{stroke:#fff;}
+  .ni.on span{font-size:13.5px;font-weight:600;}
+  .fab{width:60px;height:60px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px rgba(47,107,246,.4);flex-shrink:0;}
+  .fab svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+</head>
+<body>
+<div class="gallery">
+
+  <!-- A. HOME -->
+  <div class="screen" id="sA">
+    <div class="statusbar"><span>9:41</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
+    <div class="pad">
+      <div class="row between">
+        <div class="row" style="gap:12px"><div class="av">S</div><div><div style="font-size:12px;color:var(--mut)">Welcome back</div><div style="font-size:15px;font-weight:700">Shivansh</div></div></div>
+        <div class="row" style="gap:10px">
+          <div class="cbtn"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
+          <div class="cbtn"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="badge">3</span></div>
+        </div>
+      </div>
+
+      <div class="hero" style="margin-top:18px">
+        <div class="row between"><span class="lbl">Featured build</span><span style="font-size:11px;color:rgba(255,255,255,.6);font-weight:600">AZ-118</span></div>
+        <div class="big">Chai Point Truck</div>
+        <div class="sub">Ramesh Traders · premium food truck</div>
+        <div class="hbar"><i></i></div>
+        <div class="hrow"><span style="color:rgba(255,255,255,.6)">62% complete · Electrical</span><span>Delivery <b>30 Aug</b></span></div>
+      </div>
+
+      <div class="qa">
+        <div class="qcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></div><div class="t">Timeline</div></div>
+        <div class="qcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/></svg></div><div class="t">Components</div></div>
+        <div class="qcard"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></div><div class="t">More</div></div>
+      </div>
+
+      <h3 class="sec">Build progress</h3>
+      <div class="card">
+        <div class="row between"><span class="lbl2">Current stage · Electrical</span><span class="mut" style="font-size:12px">62% / 100%</span></div>
+        <div class="prog"><i></i><div class="hatch"></div></div>
+        <div class="row between"><span class="mut" style="font-size:12px">Started 15 Aug · due 18 Aug</span><span style="color:var(--blue);font-size:12.5px;font-weight:600">View timeline →</span></div>
+      </div>
+
+      <h3 class="sec">Recent activity</h3>
+      <div class="li"><div class="lic" style="background:var(--greenbg)"><svg viewBox="0 0 24 24" style="stroke:var(--green)"><path d="M20 6 9 17l-5-5"/></svg></div><div style="flex:1"><div class="t">Exterior cladding done</div><div class="s">AZ-118 · 14 Aug</div></div><span class="stat-pill sp green">Completed</span></div>
+      <div class="li"><div class="lic" style="background:var(--redbg)"><svg viewBox="0 0 24 24" style="stroke:var(--red)"><path d="m21.7 18-9-15a1.9 1.9 0 0 0-3.4 0l-9 15A2 2 0 0 0 3 21h18a2 2 0 0 0 1.7-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div><div style="flex:1"><div class="t">Espresso machine</div><div class="s">Order by today</div></div><span class="stat-pill sp red">Urgent</span></div>
+    </div>
+    <div class="tabbar">
+      <div class="navpill">
+        <div class="ni on"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10h14V10"/></svg><span>Home</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      </div>
+      <div class="fab"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+    </div>
+  </div>
+
+  <!-- B. ANALYTICS -->
+  <div class="screen" id="sB">
+    <div class="statusbar"><span>9:41</span><span class="dots"><i class="bar s2"></i><i class="bar"></i><i class="bar s3"></i><i class="bat"></i></span></div>
+    <div class="pad">
+      <div class="row between">
+        <div class="cbtn"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></div>
+        <div style="font-size:17px;font-weight:700">Analytics</div>
+        <div class="cbtn"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></div>
+      </div>
+
+      <div style="margin-top:18px">
+        <div class="mut" style="font-size:13px">On-time delivery</div>
+        <div class="big-num">88%</div>
+      </div>
+
+      <div class="chart" style="margin-top:14px">
+        <svg width="100%" viewBox="0 0 320 150" preserveAspectRatio="none" style="display:block">
+          <defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F6BF6" stop-opacity="0.22"/><stop offset="1" stop-color="#2F6BF6" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0,120 L50,105 L100,108 L160,74 L210,60 L270,42 L320,32 L320,150 L0,150 Z" fill="url(#ar)"/>
+          <path d="M0,120 L50,105 L100,108 L160,74 L210,60 L270,42 L320,32" fill="none" stroke="#2F6BF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="210" y1="18" x2="210" y2="150" stroke="#C9D3E4" stroke-width="1.4" stroke-dasharray="4 4"/>
+          <circle cx="210" cy="60" r="5.5" fill="#fff" stroke="#2F6BF6" stroke-width="3"/>
+        </svg>
+        <div class="row between" style="margin-top:8px;padding:0 4px"><span class="mut" style="font-size:11px">Jun</span><span class="mut" style="font-size:11px">Nov 2026</span></div>
+      </div>
+
+      <div class="three">
+        <div class="c"><div class="n" style="color:var(--green)">22</div><div class="l">On-track</div></div>
+        <div class="c"><div class="n" style="color:var(--amber)">9</div><div class="l">At-risk</div></div>
+        <div class="c"><div class="n" style="color:var(--red)">4</div><div class="l">Delayed</div></div>
+      </div>
+
+      <div class="seg"><div class="s on">This month</div><div class="s">Last month</div></div>
+
+      <div class="li"><div class="lic" style="background:#F2F3F5"><svg viewBox="0 0 24 24" style="stroke:var(--ink)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div><div style="flex:1"><div class="t">AZ-118 · Chai Point</div><div class="s">Electrical · 62% · due 30 Aug</div></div><span class="stat-pill sp green">On track</span></div>
+      <div class="li"><div class="lic" style="background:#F2F3F5"><svg viewBox="0 0 24 24" style="stroke:var(--ink)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div><div style="flex:1"><div class="t">AZ-104 · Momo Hub</div><div class="s">Electrical · 40% · due 24 Aug</div></div><span class="stat-pill sp amber">At-risk</span></div>
+    </div>
+    <div class="tabbar">
+      <div class="navpill">
+        <div class="ni"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10h14V10"/></svg></div>
+        <div class="ni on"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Projects</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <div class="ni"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      </div>
+      <div class="fab"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
