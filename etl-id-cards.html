@@ -6,8 +6,8 @@
 <title>ETL Staff ID Cards</title>
 <style>
   :root{
-    --etl-red:#bd3b39;
-    --etl-red-dark:#8f2626;
+    --etl-red:#d62e2b;
+    --etl-red-dark:#a11f1d;
     --ink:#20232a;
     --muted:#7a7f87;
     --line:#eceef1;
@@ -109,6 +109,7 @@
   .row .ic svg{width:15px;height:15px;}
   .row .k{color:var(--muted);font-size:9.5px;text-transform:uppercase;letter-spacing:.6px;font-weight:600;}
   .row .v{color:var(--ink);font-weight:600;font-size:12.5px;line-height:1.35;margin-top:1px;}
+  .row .v .pending{color:#b9bcc2;font-weight:600;font-style:italic;font-size:11.5px;letter-spacing:.3px;}
 
   /* Footer */
   .card-foot{
@@ -147,18 +148,20 @@
 
 <!-- ETL logo, recreated as reusable SVG symbol -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-  <symbol id="etl-logo" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="100" fill="#bd3b39"/>
-    <g transform="rotate(-8 78 100)">
-      <rect x="46" y="40" width="60" height="120" rx="3" fill="#141414" stroke="#ffffff" stroke-width="4"/>
-      <text x="76" y="72"  font-family="Arial, sans-serif" font-weight="900" font-size="34" fill="#fff" text-anchor="middle">E</text>
-      <text x="76" y="112" font-family="Arial, sans-serif" font-weight="900" font-size="34" fill="#fff" text-anchor="middle">T</text>
-      <text x="76" y="152" font-family="Arial, sans-serif" font-weight="900" font-size="34" fill="#fff" text-anchor="middle">L</text>
+  <symbol id="etl-logo" viewBox="0 0 240 240">
+    <circle cx="120" cy="120" r="112" fill="#d62e2b"/>
+    <g font-family="'Arial Black', Arial, sans-serif" font-weight="900">
+      <g transform="rotate(-7 88 118)">
+        <rect x="66" y="62" width="45" height="112" rx="4" fill="#141414" stroke="#fff" stroke-width="5"/>
+      </g>
+      <text x="88" y="100" font-size="37" fill="#fff" text-anchor="middle">E</text>
+      <text x="88" y="139" font-size="37" fill="#fff" text-anchor="middle">T</text>
+      <text x="88" y="172" font-size="37" fill="#fff" text-anchor="middle">L</text>
+      <text x="118" y="100" font-size="35" fill="#fff">AT</text>
+      <text x="118" y="139" font-size="35" fill="#fff">RUCK</text>
+      <text x="118" y="172" font-size="35" fill="#fff">OVE</text>
     </g>
-    <text x="112" y="72"  font-family="Arial, sans-serif" font-weight="800" font-size="30" fill="#fff">AT</text>
-    <text x="112" y="112" font-family="Arial, sans-serif" font-weight="800" font-size="30" fill="#fff">RUCK</text>
-    <text x="112" y="152" font-family="Arial, sans-serif" font-weight="800" font-size="30" fill="#fff">OVE</text>
-    <text x="100" y="182" font-family="Arial, sans-serif" font-weight="700" font-size="12" letter-spacing="2" fill="#141414" text-anchor="middle">BY AZIMUTH</text>
+    <text x="132" y="200" font-family="'Arial Black',Arial,sans-serif" font-weight="800" font-size="14" letter-spacing="2.5" fill="#141414" text-anchor="middle">BY AZIMUTH</text>
   </symbol>
 </svg>
 
@@ -186,9 +189,10 @@
 
   const el = document.getElementById("cards");
   staff.forEach(p => {
-    const phoneRow = p.phone
-      ? `<div class="row"><div class="ic">${icPhone}</div><div><div class="k">Contact</div><div class="v">${p.phone}</div></div></div>`
-      : "";
+    const contactVal = p.phone
+      ? p.phone
+      : '<span class="pending">to be added</span>';
+    const phoneRow = `<div class="row"><div class="ic">${icPhone}</div><div><div class="k">Contact</div><div class="v">${contactVal}</div></div></div>`;
     el.insertAdjacentHTML("beforeend", `
       <div class="card">
         ${wmLogo}
