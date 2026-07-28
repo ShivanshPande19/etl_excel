@@ -189,7 +189,7 @@
   const wave = '<svg class="wave" viewBox="0 0 340 34" preserveAspectRatio="none"><path d="M0,20 C90,42 250,-2 340,20 L340,34 L0,34 Z" fill="#fff"/></svg>';
   // Real ETL logo file (assets/etl-logo.png). If missing, the SVG fallback shows automatically.
   const LOGO_SRC = "assets/etl-logo.png";
-  const wmLogo   = `<svg class="wm wm-fb"><use href="#etl-logo"/></svg><img class="wm wm-real" src="${LOGO_SRC}" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'">`;
+  const wmLogo   = ``;  // watermark removed
   const badgeLogo= `<div class="logo-badge"><svg class="logo-fb"><use href="#etl-logo"/></svg><img class="logo-real" src="${LOGO_SRC}" alt="ETL logo" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'"></div>`;
 
   const el = document.getElementById("cards");
