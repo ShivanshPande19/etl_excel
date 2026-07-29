@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bennett University - Brands Menu Index</title>
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --accent: #c8102e;
+    --muted: #6b7280;
+    --line: #d8dbe0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #f2f3f5;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    padding: 26mm 22mm;
+    background: #fff;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    text-align: center;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 18px;
+    margin-bottom: 8px;
+  }
+
+  .eyebrow {
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .header h1 {
+    font-size: 34px;
+    letter-spacing: 2px;
+    margin: 6px 0 2px;
+    text-transform: uppercase;
+  }
+
+  .header h2 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .index-title {
+    text-align: center;
+    margin: 26px 0 10px;
+    font-size: 20px;
+    letter-spacing: 6px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  ol.brands {
+    list-style: none;
+    margin-top: 8px;
+  }
+
+  ol.brands li {
+    display: flex;
+    align-items: center;
+    padding: 16px 4px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .num {
+    flex: 0 0 40px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .brand .sub {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .dots {
+    flex: 1 1 auto;
+    border-bottom: 2px dotted var(--line);
+    margin: 0 12px;
+    transform: translateY(4px);
+  }
+
+  .pageno {
+    flex: 0 0 70px;
+    text-align: center;
+    font-size: 15px;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 6px 0;
+    min-height: 30px;
+  }
+
+  .foot {
+    margin-top: auto;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .print-btn {
+    display: block;
+    margin: 16px auto;
+    padding: 12px 26px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
+
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; box-shadow: none; width: auto; min-height: auto; padding: 14mm 16mm; }
+    .print-btn { display: none; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<div class="page">
+  <div class="header">
+    <div class="eyebrow">Bennett University</div>
+    <h1>Food Brands</h1>
+    <h2>Menu Directory</h2>
+  </div>
+
+  <div class="index-title">Index</div>
+
+  <ol class="brands">
+    <li>
+      <span class="num">1</span>
+      <span class="brand">Milkbar</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">2</span>
+      <span class="brand">Big Bear <span class="sub">( Zorko )</span></span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">3</span>
+      <span class="brand">BBF</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">4</span>
+      <span class="brand">Kobys</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">5</span>
+      <span class="brand">Eggspert</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">6</span>
+      <span class="brand">Chatpata Affair</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">7</span>
+      <span class="brand">The Coffee Vault</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">8</span>
+      <span class="brand">OG Pizza</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">9</span>
+      <span class="brand">The Momo Box</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">10</span>
+      <span class="brand">Soul Crumb</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+    <li>
+      <span class="num">11</span>
+      <span class="brand">Burrito Bros</span>
+      <span class="dots"></span>
+      <span class="pageno"></span>
+    </li>
+  </ol>
+
+  <div class="foot">Bennett University &bull; Food Brands Menu File</div>
+</div>
+
+</body>
+</html>
