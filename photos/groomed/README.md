@@ -1,7 +1,7 @@
-# Groomed staff photos — for review
+# Groomed staff photos
 
-Cleaned-up versions of the raw shots in `photos/`. **The originals are untouched**,
-and the ID cards still use them — nothing is switched over until these are approved.
+Cleaned-up versions of the raw shots in `photos/`. **These are the photos on the
+ID cards.** The originals in `photos/` are kept untouched as the source.
 
 | File | Source |
 |---|---|
@@ -70,8 +70,16 @@ you'd prefer it darker — just say so.
 
 ```bash
 pip install pillow numpy opencv-python-headless "rembg[cpu]" onnxruntime
-python3 tools/groom_photos.py --contact-sheet
+python3 tools/groom_photos.py --contact-sheet   # -> this folder
+python3 tools/render_cards.py                   # -> id-cards/, PDF, preview
 ```
 
 Models download on first run (~176 MB human-segmentation, ~230 KB face detector).
 See `tools/groom_photos.py` for the full pipeline.
+
+Useful knobs at the top of that script: `HEAD_RATIO` (head size as a share of
+frame height, currently 0.50), `TOP_GAP` (headroom, 0.14), `MAX_ROLL_DEG`
+(levelling limit, 7°) and `BG_CENTER` / `BG_EDGE` for the backdrop colour.
+
+The card's photo box is 3:4 to match these files exactly, so `object-fit: cover`
+has nothing left to crop and the cards show the framing as it appears here.

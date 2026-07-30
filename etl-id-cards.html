@@ -74,9 +74,12 @@
     padding:0 20px 18px;
     display:flex;flex-direction:column;align-items:center;
   }
+  /* 118x157 keeps the box at 3:4, the same ratio the photos in
+     photos/groomed/ are cropped to, so object-fit:cover has nothing left to
+     trim and each card shows the framing exactly as it was approved. */
   .photo{
     position:relative;
-    width:118px;height:140px;border-radius:14px;
+    width:118px;height:157px;border-radius:14px;
     margin-top:-40px;
     background:var(--soft);
     border:4px solid #fff;
@@ -147,7 +150,7 @@
 
 <div class="page-head">
   <h1>Eat Truck Love &mdash; Staff Identity Cards</h1>
-  <p>Photo boxes are placeholders &mdash; send each photo and it will be placed on the matching card.</p>
+  <p>Five cards, ready to print. Photos from <code>photos/groomed/</code>.</p>
 </div>
 
 <div class="grid" id="cards"></div>
@@ -203,7 +206,7 @@
       : '<span class="pending">to be added</span>';
     const phoneRow = `<div class="row"><div class="ic">${icPhone}</div><div><div class="k">Contact</div><div class="v">${contactVal}</div></div></div>`;
     el.insertAdjacentHTML("beforeend", `
-      <div class="card">
+      <div class="card" data-slug="${p.slug}">
         ${wmLogo}
         <div class="card-top">
           ${badgeLogo}
@@ -228,18 +231,27 @@
     `);
   });
 
-  // Load each staff photo from photos/<slug>.<ext>, trying common extensions.
-  // If none is found, the "PHOTO" placeholder stays visible.
+  // Load each staff photo, preferring the groomed version (clean background,
+  // levelled, standard ID framing) and falling back to the raw upload if a
+  // groomed one hasn't been produced yet. If nothing is found, the "PHOTO"
+  // placeholder stays visible.
+  const RAW_EXTS = ["jpg","jpeg","png","JPG","JPEG","PNG","webp"];
   document.querySelectorAll(".pimg").forEach(img => {
     const slug = img.dataset.slug;
-    const exts = ["jpg","jpeg","png","JPG","JPEG","PNG","webp"];
+    const candidates = [
+      "photos/groomed/" + slug + ".jpeg",
+      "photos/groomed/" + slug + ".jpg",
+      "photos/groomed/" + slug + ".png",
+      ...RAW_EXTS.map(e => "photos/" + slug + "." + e),
+    ];
     let i = 0;
     const tryNext = () => {
-      if (i >= exts.length) { img.style.display = "none"; return; }
-      img.src = "photos/" + slug + "." + exts[i++];
+      if (i >= candidates.length) { img.style.display = "none"; return; }
+      img.src = candidates[i++];
     };
     img.onload = () => {
       img.style.display = "block";
+      img.dataset.loaded = img.getAttribute("src");
       const ph = img.parentElement.querySelector(".ph-empty");
       if (ph) ph.style.display = "none";
     };
