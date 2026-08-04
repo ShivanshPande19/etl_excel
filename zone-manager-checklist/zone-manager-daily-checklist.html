@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ETL &mdash; Zone Manager Daily Court Checklist</title>
+<style>
+/* ============================================================
+   ETL (Eat Truck Love)
+   ZONE MANAGER — DAILY COURT CHECKLIST
+   Maintained by the Zone Manager for his own food court,
+   submitted daily to the Operations Manager.
+   Form No. ETL/OPS/ZM/DC-01 | Rev 1.0
+   Print target: A4 Portrait, ink-friendly
+   ============================================================ */
+
+@page { size: A4 portrait; margin: 8mm; }
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 8.4pt; line-height: 1.25; color: #000; margin: 0; background: #eee;
+}
+
+.page {
+  width: 194mm; padding: 0; margin: 0 auto 8mm; background: #fff;
+  page-break-after: always; break-after: page; display: flex; flex-direction: column;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* ---------- masthead ---------- */
+.masthead { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #000; padding-bottom: 3px; margin-bottom: 5px; }
+.brand { font-size: 14.5pt; font-weight: bold; letter-spacing: .4px; line-height: 1.05; }
+.brand span { font-size: 7.3pt; font-weight: normal; letter-spacing: 1.1px; display: block; }
+.docmeta { text-align: right; font-size: 7.2pt; line-height: 1.4; }
+.docmeta b { font-size: 9.6pt; }
+
+.pagelabel { background: #000; color: #fff; font-size: 8.2pt; font-weight: bold;
+  padding: 2.6px 7px; letter-spacing: .7px; margin-bottom: 5px;
+  display: flex; justify-content: space-between; }
+
+/* ---------- section heads ---------- */
+h2.sec { font-size: 8.7pt; text-transform: uppercase; letter-spacing: .4px;
+  background: #ddd; border-left: 4px solid #000; margin: 4.5px 0 2px; padding: 2.3px 6px; }
+h2.sec .hint { float: right; font-weight: normal; text-transform: none; letter-spacing: 0; font-size: 7.1pt; }
+
+/* ---------- tables ---------- */
+table { width: 100%; border-collapse: collapse; margin-bottom: 2px; }
+th, td { border: .6px solid #666; padding: 2.2px 3.5px; vertical-align: middle; }
+th { background: #ececec; font-size: 7.5pt; text-align: left; font-weight: bold; }
+td { height: 15px; }
+.c { text-align: center; }
+td.fill { background: #f4f4f4; }
+tr.tot td { font-weight: bold; background: #e6e6e6; }
+table.tight td { height: 13px; }
+
+/* ---------- checkbox ---------- */
+.cb { display: inline-block; width: 8.5px; height: 8.5px; border: 1px solid #000;
+  margin-right: 4px; vertical-align: -1px; flex: 0 0 auto; }
+ul.chk { list-style: none; margin: 0; padding: 0; }
+ul.chk li { display: flex; align-items: flex-start; padding: 1.8px 0; border-bottom: .4px dotted #aaa; }
+ul.chk li:last-child { border-bottom: none; }
+.cols2 { column-count: 2; column-gap: 8mm; column-rule: .5px solid #ccc; }
+.cols2 li { break-inside: avoid; }
+
+/* ---------- misc ---------- */
+.row { display: flex; gap: 4mm; }
+.row > * { flex: 1; min-width: 0; }
+.note { border: .8px solid #000; background: #f2f2f2; padding: 4px 6px; font-size: 7.5pt; margin-bottom: 5px; }
+.note b { text-transform: uppercase; letter-spacing: .3px; }
+.blank { border-bottom: .7px solid #000; display: inline-block; min-width: 40px; }
+.sign { margin-top: 5px; }
+.sign td { height: 28px; vertical-align: bottom; font-size: 7.3pt; }
+.footer { border-top: .6px solid #000; padding-top: 2.5px; margin-top: auto;
+  font-size: 6.8pt; display: flex; justify-content: space-between; color: #333; }
+.legendbox { border: .8px solid #000; padding: 5px 7px; font-size: 7.3pt; line-height: 1.34; }
+.legendbox u { display: block; margin-bottom: 2px; text-transform: uppercase; letter-spacing: .4px; font-weight: bold; text-decoration: none; }
+
+/* ---------- screen-only helper ---------- */
+.screenonly { max-width: 194mm; margin: 10mm auto 4mm; padding: 9px 13px;
+  background: #fff8dc; border: 1px solid #c9a227; font-size: 9pt; line-height: 1.5; }
+@media print { .screenonly { display: none; } body { background: #fff; } .page { margin: 0; box-shadow: none; width: auto; } }
+@media screen { .page { box-shadow: 0 1px 5px rgba(0,0,0,.3); padding: 6mm; min-height: 281mm; } }
+</style>
+</head>
+<body>
+
+<div class="screenonly">
+  <b>How to print:</b> <b>Ctrl&nbsp;+&nbsp;P</b> (Mac: <b>Cmd&nbsp;+&nbsp;P</b>), then set Paper <b>A4</b>, Margins <b>Default</b>, tick <b>Background graphics</b>, and Print or <b>Save as PDF</b>.
+  Prints as <b>4 A4 pages</b>. Print double-sided and staple top-left to make a daily pad. This banner does not print.
+</div>
+
+<!-- =========== PAGE 1 =========== -->
+<div class="page">
+  <div class="masthead">
+    <div class="brand">EAT TRUCK LOVE<span>ETL FOOD ZONES</span></div>
+    <div class="docmeta">
+      <b>ZONE MANAGER &mdash; DAILY COURT CHECKLIST</b><br>
+      Form No. ETL/OPS/ZM/DC-01 &nbsp;|&nbsp; Rev 1.0<br>
+      Maintained by: <b>Zone Manager</b> &nbsp;&middot;&nbsp; Submitted to: <b>Operations Manager</b>
+    </div>
+  </div>
+  <div class="pagelabel"><span>PAGE 1 OF 5 &nbsp;&mdash;&nbsp; COURT INFO, OPENING, TEAM &amp; UTILITIES</span><span>ETL/OPS/ZM/DC-01</span></div>
+
+  <table class="tight">
+    <tr>
+      <th style="width:11%">Food court</th><td style="width:23%"></td>
+      <th style="width:7%">Date</th><td style="width:12%"></td>
+      <th style="width:6%">Day</th><td style="width:11%"></td>
+      <th style="width:10%">Weather</th><td></td>
+    </tr>
+    <tr>
+      <th>Zone Manager</th><td></td>
+      <th>My shift</th><td colspan="3">From <span class="blank" style="min-width:44px"></span> To <span class="blank" style="min-width:44px"></span></td>
+      <th>Court open / close</th><td></td>
+    </tr>
+    <tr>
+      <th>Supervisor on duty</th><td></td>
+      <th>Total outlets</th><td class="c"></td>
+      <th>Outlets open</th><td class="c"></td>
+      <th>Outlets shut</th><td class="c"></td>
+    </tr>
+  </table>
+
+  <div class="note">
+    <b>How to use this sheet:</b> This is <b>your</b> checklist for <b>your court</b>. Keep it with you and tick each item only after you have
+    personally seen it &mdash; opening in the morning, mid-day round, and again at closing. Hand the completed sheet to the
+    <b>Operations Manager by 09:30 AM the next morning</b>.
+    Write <b>NIL</b> where there is nothing to report. <b>A blank box will be read as NOT DONE.</b>
+    Anything serious (fire, injury, theft, food poisoning) &mdash; <b>phone the Operations Manager at once</b>, do not wait for this sheet.
+  </div>
+
+  <h2 class="sec">1 &nbsp;Opening Readiness <span class="hint">Complete before the court opens to customers</span></h2>
+  <ul class="chk cols2">
+    <li><span class="cb"></span>Main gate, entrance &amp; walkways clear and clean</li>
+    <li><span class="cb"></span>All common seating wiped, aligned, nothing broken</li>
+    <li><span class="cb"></span>Washrooms cleaned, dry, odour-free, fully stocked</li>
+    <li><span class="cb"></span>Dustbins emptied, liners replaced, lids intact</li>
+    <li><span class="cb"></span>Parking swept, markings visible, marshals briefed</li>
+    <li><span class="cb"></span>Court floor mopped, no oil or water spillage</li>
+    <li><span class="cb"></span>All court lighting tested and working</li>
+    <li><span class="cb"></span>Signages clean, lit, aligned, none damaged</li>
+    <li><span class="cb"></span>Landscaping watered, trimmed, no dead plants</li>
+    <li><span class="cb"></span>Umbrellas / canopies opened, clean, no tears</li>
+    <li><span class="cb"></span>Music system on &mdash; approved playlist and volume</li>
+    <li><span class="cb"></span>Kids area cleaned, equipment safe, no sharp edges</li>
+    <li><span class="cb"></span>Fire extinguishers in place, pressure OK, in date</li>
+    <li><span class="cb"></span>First aid box present, sealed, stocked, in date</li>
+    <li><span class="cb"></span>All CCTV live, recording, date &amp; time correct</li>
+    <li><span class="cb"></span>My staff in full uniform, groomed, ID cards worn</li>
+    <li><span class="cb"></span>Previous day&rsquo;s garbage fully lifted from court</li>
+    <li><span class="cb"></span>No pest activity visible in common areas</li>
+    <li><span class="cb"></span>Drinking water and hand wash points working</li>
+    <li><span class="cb"></span>Ramps, railings &amp; accessible route unobstructed</li>
+  </ul>
+  <table class="tight"><tr>
+    <th style="width:17%">Opening round done at</th><td style="width:11%"></td>
+    <th style="width:17%">Items found not OK</th><td class="c" style="width:7%"></td>
+    <th style="width:22%">All of them logged in Section 6 / 7</th><td class="c"><span class="cb"></span>Yes <span class="cb"></span>Nothing found</td></tr>
+  </table>
+
+  <h2 class="sec">2 &nbsp;My Staff &mdash; Attendance <span class="hint">Head count at start of shift</span></h2>
+  <table class="tight">
+    <tr><th style="width:23%">Function</th><th class="c" style="width:11%">Required</th><th class="c" style="width:11%">Present</th><th class="c" style="width:10%">Absent</th><th class="c" style="width:15%">Replacement arranged</th><th>Name of absentee / remarks</th></tr>
+    <tr><td>Housekeeping</td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td></td></tr>
+    <tr><td>Security guards</td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td></td></tr>
+    <tr><td>Maintenance / technician</td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td></td></tr>
+    <tr><td>Parking marshals</td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td></td></tr>
+    <tr><td>CAM / support staff</td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td></td></tr>
+    <tr class="tot"><td>TOTAL</td><td></td><td></td><td></td><td class="c">Attendance %</td><td></td></tr>
+  </table>
+
+  <h2 class="sec">3 &nbsp;Utilities &amp; Power <span class="hint">Check at opening, note any failure during the day</span></h2>
+  <table class="tight">
+    <tr><th style="width:19%">Utility</th><th class="c" style="width:14%">Status</th><th style="width:20%">Reading / level</th><th class="c" style="width:11%">Value</th><th>Remarks &amp; what I did</th></tr>
+    <tr><td>Water availability</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td>Tank level (%)</td><td></td><td></td></tr>
+    <tr><td>Electricity supply</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td>Main meter reading</td><td></td><td></td></tr>
+    <tr><td>DG backup test run</td><td class="c"><span class="cb"></span>Done <span class="cb"></span>No</td><td>DG diesel level (L)</td><td></td><td></td></tr>
+    <tr><td>Power cut today</td><td class="c"><span class="cb"></span>Nil <span class="cb"></span>Yes</td><td>Total minutes down</td><td></td><td></td></tr>
+    <tr><td>LPG / gas bank</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td>Cylinders in stock</td><td></td><td></td></tr>
+    <tr><td>Sewage / drainage</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td>Grease trap cleaned</td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td></td></tr>
+  </table>
+
+  <div class="footer"><span>ETL/OPS/ZM/DC-01 Rev 1.0 &mdash; Zone Manager Daily Court Checklist</span><span>Page 1 of 5</span></div>
+</div>
+
+<!-- =========== PAGE 2 =========== -->
+<div class="page">
+  <div class="masthead">
+    <div class="brand">EAT TRUCK LOVE<span>ETL FOOD ZONES</span></div>
+    <div class="docmeta">Food court: <span class="blank" style="min-width:95px"></span><br>Date: <span class="blank" style="min-width:95px"></span></div>
+  </div>
+  <div class="pagelabel"><span>PAGE 2 OF 5 &nbsp;&mdash;&nbsp; HOUSEKEEPING, WASHROOMS &amp; MAINTENANCE</span><span>ETL/OPS/ZM/DC-01</span></div>
+  <h2 class="sec">4 &nbsp;Housekeeping Rounds <span class="hint">All three rounds are compulsory &mdash; tick each area after checking it yourself</span></h2>
+  <table class="tight">
+    <tr><th style="width:13%">Round</th><th class="c" style="width:11%">Time done</th><th class="c" style="width:12%">Supervisor initials</th>
+      <th class="c" style="width:9%">Seating</th><th class="c" style="width:11%">Washrooms</th><th class="c" style="width:9%">Dustbins</th>
+      <th class="c" style="width:10%">Walkways</th><th class="c" style="width:9%">Parking</th><th class="c">Court floor</th></tr>
+    <tr><td><b>Opening</b></td><td></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
+    <tr><td><b>Mid-day</b></td><td></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
+    <tr><td><b>Closing</b></td><td></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
+  </table>
+  <table class="tight"><tr>
+    <th style="width:22%">Garbage lifted &mdash; time &amp; trips</th><td style="width:14%"></td>
+    <th style="width:22%">Wet / dry segregation done</th><td class="c" style="width:12%"><span class="cb"></span>Y <span class="cb"></span>N</td>
+    <th style="width:18%">Housekeeping score today</th><td class="c">&nbsp; / 100</td></tr>
+  </table>
+
+  <h2 class="sec">5 &nbsp;Washroom Hourly Check <span class="hint">Every hour, without exception. S = Satisfactory &nbsp;|&nbsp; C = Cleaned by me / staff &nbsp;|&nbsp; E = Escalated (log in Section 7)</span></h2>
+  <div class="row">
+    <table class="tight">
+      <tr><th class="c" style="width:20%">Hour</th><th class="c">Gents</th><th class="c">Ladies</th><th class="c">Accessible</th><th class="c" style="width:20%">Initials</th></tr>
+      <tr><td class="c">09:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">10:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">11:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">12:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">13:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">14:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">15:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">16:00</td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    <table class="tight">
+      <tr><th class="c" style="width:20%">Hour</th><th class="c">Gents</th><th class="c">Ladies</th><th class="c">Accessible</th><th class="c" style="width:20%">Initials</th></tr>
+      <tr><td class="c">17:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">18:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">19:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">20:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">21:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">22:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="c">23:00</td><td></td><td></td><td></td><td></td></tr>
+      <tr class="tot"><td colspan="5" class="c">Washroom score today: <span class="blank" style="min-width:32px"></span> / 100</td></tr>
+    </table>
+  </div>
+  <table class="tight"><tr><th style="width:17%">Consumables refilled</th>
+    <td><span class="cb"></span>Hand wash &nbsp; <span class="cb"></span>Tissue / hand towel &nbsp; <span class="cb"></span>Sanitizer &nbsp; <span class="cb"></span>Toilet paper &nbsp; <span class="cb"></span>Air freshener &nbsp; <span class="cb"></span>Floor cleaner</td></tr></table>
+
+  <h2 class="sec">6 &nbsp;Maintenance Walk <span class="hint">Mark OK or ISSUE. Every ISSUE must get a row in Section 7</span></h2>
+  <table class="tight">
+    <tr><th style="width:15%">System</th><th class="c" style="width:13%">Status</th><th style="width:22%">What I observed</th>
+        <th style="width:15%">System</th><th class="c" style="width:13%">Status</th><th>What I observed</th></tr>
+    <tr><td>Electrical &amp; DB panels</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td>
+        <td>Furniture &amp; fixtures</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td></tr>
+    <tr><td>Plumbing &amp; taps</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td>
+        <td>Umbrellas / canopies</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td></tr>
+    <tr><td>Air conditioning / fans</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td>
+        <td>Signages &amp; branding</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td></tr>
+    <tr><td>DG set</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td>
+        <td>Kitchen exhausts / ducts</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td></tr>
+    <tr><td>Lighting (all areas)</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td>
+        <td>Fire safety equipment</td><td class="c"><span class="cb"></span>OK <span class="cb"></span>Issue</td><td></td></tr>
+  </table>
+  <table class="tight"><tr>
+    <th style="width:30%">Preventive maintenance task due today</th><td style="width:22%"></td>
+    <th style="width:13%">Completed</th><td class="c" style="width:11%"><span class="cb"></span>Y <span class="cb"></span>N <span class="cb"></span>N/A</td>
+    <th style="width:12%">Done by</th><td></td></tr>
+  </table>
+
+  <h2 class="sec">7 &nbsp;Maintenance Issues &mdash; Open List <span class="hint">Copy forward every open issue each day until it is closed, so the age is always visible</span></h2>
+  <table class="tight">
+    <tr><th class="c" style="width:4%">#</th><th style="width:26%">Issue &amp; exact location</th><th class="c" style="width:9%">First raised on</th>
+        <th style="width:16%">Given to (vendor / technician)</th><th class="c" style="width:8%">Promised by</th><th class="c" style="width:8%">Days open</th><th class="c" style="width:14%">Status</th><th class="c">Tell Ops Mgr</th></tr>
+    <tr><td class="c">1</td><td></td><td></td><td></td><td></td><td></td><td class="c">Open / WIP / Closed</td><td class="c"><span class="cb"></span></td></tr>
+    <tr><td class="c">2</td><td></td><td></td><td></td><td></td><td></td><td class="c">Open / WIP / Closed</td><td class="c"><span class="cb"></span></td></tr>
+    <tr><td class="c">3</td><td></td><td></td><td></td><td></td><td></td><td class="c">Open / WIP / Closed</td><td class="c"><span class="cb"></span></td></tr>
+    <tr><td class="c">4</td><td></td><td></td><td></td><td></td><td></td><td class="c">Open / WIP / Closed</td><td class="c"><span class="cb"></span></td></tr>
+    <tr><td class="c">5</td><td></td><td></td><td></td><td></td><td></td><td class="c">Open / WIP / Closed</td><td class="c"><span class="cb"></span></td></tr>
+    <tr><td class="c">6</td><td></td><td></td><td></td><td></td><td></td><td class="c">Open / WIP / Closed</td><td class="c"><span class="cb"></span></td></tr>
+  </table>
+
+  <div class="footer"><span>ETL/OPS/ZM/DC-01 Rev 1.0 &mdash; Zone Manager Daily Court Checklist</span><span>Page 2 of 5</span></div>
+</div>
+
+<!-- =========== PAGE 3 =========== -->
+<div class="page">
+  <div class="masthead">
+    <div class="brand">EAT TRUCK LOVE<span>ETL FOOD ZONES</span></div>
+    <div class="docmeta">Food court: <span class="blank" style="min-width:95px"></span><br>Date: <span class="blank" style="min-width:95px"></span></div>
+  </div>
+  <div class="pagelabel"><span>PAGE 3 OF 5 &nbsp;&mdash;&nbsp; SECURITY, OUTLETS &amp; CUSTOMERS</span><span>ETL/OPS/ZM/DC-01</span></div>
+  <h2 class="sec">8 &nbsp;Security Check <span class="hint">Verified by me, not just reported to me</span></h2>
+  <ul class="chk cols2">
+    <li><span class="cb"></span>Entry / exit gates manned all through opening hours</li>
+    <li><span class="cb"></span>Last night&rsquo;s shift report read &amp; signed by me</li>
+    <li><span class="cb"></span>Parking marshals deployed, traffic flow orderly</li>
+    <li><span class="cb"></span>All CCTV cameras seen live on the monitor</li>
+    <li><span class="cb"></span>Recording confirmed, old footage still available</li>
+    <li><span class="cb"></span>Incident register checked &amp; signed</li>
+    <li><span class="cb"></span>Vendor staff ID &amp; uniform checked</li>
+    <li><span class="cb"></span>Material in / out gate passes checked</li>
+    <li><span class="cb"></span>Guard grooming, posture &amp; alertness satisfactory</li>
+    <li><span class="cb"></span>Emergency exits clear, unlocked, signage lit</li>
+    <li><span class="cb"></span>No unauthorised hawkers or vehicles inside court</li>
+    <li><span class="cb"></span>Night shift briefed &amp; handover signed at closing</li>
+  </ul>
+  <table class="tight"><tr>
+    <th style="width:20%">Peak parking occupancy</th><td class="c" style="width:9%"></td>
+    <th style="width:18%">Vehicles turned away</th><td class="c" style="width:8%"></td>
+    <th style="width:24%">New entries in incident register</th><td class="c"></td></tr>
+  </table>
+
+  <h2 class="sec">9 &nbsp;My Outlets &mdash; Daily Status <span class="hint">One row per outlet in my court. Tick if OK, write E if escalated</span></h2>
+  <table class="tight">
+    <tr><th class="c" style="width:4%">#</th><th style="width:19%">Outlet name</th><th class="c" style="width:8%">Opened on time</th>
+        <th class="c" style="width:8%">Closed at</th><th class="c" style="width:7%">Clean &amp; hygienic</th><th class="c" style="width:7%">Staff in uniform</th>
+        <th class="c" style="width:8%">Menu &amp; price board OK</th><th style="width:19%">What the vendor told me</th><th>What I did about it</th></tr>
+    <tr><td class="c">1</td><td></td><td class="c"><span class="cb"></span></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td><td></td></tr>
+    <tr><td class="c">2</td><td></td><td class="c"><span class="cb"></span></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td><td></td></tr>
+    <tr><td class="c">3</td><td></td><td class="c"><span class="cb"></span></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td><td></td></tr>
+    <tr><td class="c">4</td><td></td><td class="c"><span class="cb"></span></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td><td></td></tr>
+    <tr><td class="c">5</td><td></td><td class="c"><span class="cb"></span></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td><td></td></tr>
+    <tr><td class="c">6</td><td></td><td class="c"><span class="cb"></span></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td><td></td></tr>
+  </table>
+  <table class="tight"><tr><th style="width:24%">Outlets shut today &mdash; name &amp; reason</th><td></td></tr></table>
+
+  <h2 class="sec">10 &nbsp;Customer Experience Round <span class="hint">Do one round at peak hour and write what a customer would actually see</span></h2>
+  <table class="tight">
+    <tr><th style="width:15%">What I checked</th><th class="c" style="width:14%">Rating</th><th style="width:21%">Remarks</th>
+        <th style="width:15%">What I checked</th><th class="c" style="width:14%">Rating</th><th>Remarks</th></tr>
+    <tr><td>Music &mdash; playlist &amp; volume</td><td class="c"><span class="cb"></span>Good <span class="cb"></span>Poor</td><td></td>
+        <td>Parking experience</td><td class="c"><span class="cb"></span>Good <span class="cb"></span>Poor</td><td></td></tr>
+    <tr><td>Lighting &amp; ambience</td><td class="c"><span class="cb"></span>Good <span class="cb"></span>Poor</td><td></td>
+        <td>Kids area</td><td class="c"><span class="cb"></span>Good <span class="cb"></span>Poor</td><td></td></tr>
+    <tr><td>Seating available at peak</td><td class="c"><span class="cb"></span>Good <span class="cb"></span>Poor</td><td></td>
+        <td>Overall cleanliness</td><td class="c"><span class="cb"></span>Good <span class="cb"></span>Poor</td><td></td></tr>
+    <tr><td>Washroom condition</td><td class="c"><span class="cb"></span>Good <span class="cb"></span>Poor</td><td></td>
+        <td>Staff behaviour with customers</td><td class="c"><span class="cb"></span>Good <span class="cb"></span>Poor</td><td></td></tr>
+  </table>
+  <table class="tight"><tr>
+    <th style="width:16%">Footfall &mdash; day</th><td class="c" style="width:9%"></td>
+    <th style="width:17%">Footfall &mdash; evening</th><td class="c" style="width:9%"></td>
+    <th style="width:14%">Busiest hour</th><td class="c" style="width:9%"></td>
+    <th style="width:19%">Peak seating occupancy %</th><td class="c"></td></tr>
+  </table>
+
+  <h2 class="sec">Anything Else I Noticed in My Court Today <span class="hint">Write freely &mdash; things that do not fit the boxes above</span></h2>
+  <table class="tight">
+    <tr><td style="height:21px"></td></tr>
+    <tr><td style="height:21px"></td></tr>
+    <tr><td style="height:21px"></td></tr>
+    <tr><td style="height:21px"></td></tr>
+  </table>
+
+  <div class="footer"><span>ETL/OPS/ZM/DC-01 Rev 1.0 &mdash; Zone Manager Daily Court Checklist</span><span>Page 3 of 5</span></div>
+</div>
+
+<!-- =========== PAGE 4 =========== -->
+<div class="page">
+  <div class="masthead">
+    <div class="brand">EAT TRUCK LOVE<span>ETL FOOD ZONES</span></div>
+    <div class="docmeta">Food court: <span class="blank" style="min-width:95px"></span><br>Date: <span class="blank" style="min-width:95px"></span></div>
+  </div>
+  <div class="pagelabel"><span>PAGE 4 OF 5 &nbsp;&mdash;&nbsp; COMPLAINTS, COLLECTIONS, LICENCES &amp; EVENTS</span><span>ETL/OPS/ZM/DC-01</span></div>
+  <h2 class="sec">11 &nbsp;Customer Complaints <span class="hint">Every complaint must be closed within 24 hours. If I cannot close it, tell the Operations Manager the same day</span></h2>
+  <table class="tight">
+    <tr><th class="c" style="width:4%">#</th><th class="c" style="width:8%">Time</th><th style="width:14%">Customer &amp; contact</th><th style="width:23%">What the complaint was</th>
+        <th style="width:11%">Against (outlet / court)</th><th style="width:22%">What I did to settle it</th><th class="c">Closed?</th></tr>
+    <tr><td class="c">1</td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td></tr>
+    <tr><td class="c">2</td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td></tr>
+    <tr><td class="c">3</td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td></tr>
+    <tr><td class="c">4</td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td></tr>
+    <tr><td class="c">5</td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td></tr>
+    <tr><td class="c">6</td><td></td><td></td><td></td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td></tr>
+    <tr class="tot"><td colspan="7">New today: <span class="blank" style="min-width:26px"></span> &nbsp;&nbsp; Closed today: <span class="blank" style="min-width:26px"></span> &nbsp;&nbsp; Still open from earlier: <span class="blank" style="min-width:26px"></span> &nbsp;&nbsp; Any complaint older than 24 hrs: <span class="cb"></span>No <span class="cb"></span>Yes &mdash; reported to Ops Manager</td></tr>
+  </table>
+
+  <h2 class="sec">12 &nbsp;Collections Received Today <span class="hint">Only what physically came in through me today. Hand over cash the same day</span></h2>
+  <table class="tight">
+    <tr><th style="width:18%">Head</th><th class="c" style="width:14%">Received (&#8377;)</th><th class="c" style="width:13%">Mode</th><th style="width:18%">Receipt / slip no.</th><th class="c" style="width:12%">Handed over to</th><th>Remarks</th></tr>
+    <tr><td>Rent</td><td></td><td class="c">Cash / UPI / Chq</td><td></td><td></td><td></td></tr>
+    <tr><td>Revenue share</td><td></td><td class="c">Cash / UPI / Chq</td><td></td><td></td><td></td></tr>
+    <tr><td>CAM charges</td><td></td><td class="c">Cash / UPI / Chq</td><td></td><td></td><td></td></tr>
+    <tr><td>Electricity / water</td><td></td><td class="c">Cash / UPI / Chq</td><td></td><td></td><td></td></tr>
+    <tr><td>Parking / other income</td><td></td><td class="c">Cash / UPI / Chq</td><td></td><td></td><td></td></tr>
+    <tr class="tot"><td>TOTAL RECEIVED</td><td></td><td colspan="2" class="c">Cash on hand at closing (&#8377;)</td><td class="c"></td><td></td></tr>
+  </table>
+  <table class="tight">
+    <tr><th class="c" style="width:4%">#</th><th style="width:26%">Outlet not paying / delaying</th><th class="c" style="width:14%">Amount pending (&#8377;)</th><th class="c" style="width:12%">Days pending</th><th style="width:22%">What the vendor said</th><th>Date he promised</th></tr>
+    <tr><td class="c">1</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="c">2</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="c">3</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td class="c">4</td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <h2 class="sec">13 &nbsp;Licence &amp; Safety Spot Check <span class="hint">Check 2 outlets a day by rotation so my whole court is covered every week</span></h2>
+  <table class="tight">
+    <tr><th style="width:17%">Outlet checked</th><th class="c" style="width:12%">FSSAI valid till</th><th class="c" style="width:11%">Trade licence</th><th class="c" style="width:12%">Fire extinguisher</th>
+        <th class="c" style="width:9%">First aid</th><th class="c" style="width:13%">Pest control last done</th><th class="c" style="width:11%">Staff medical cards</th><th>Problem found / action</th></tr>
+    <tr><td></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td><td class="c"><span class="cb"></span></td><td></td></tr>
+    <tr><td></td><td></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td><td></td><td class="c"><span class="cb"></span></td><td></td></tr>
+    <tr><th colspan="2">Any licence expiring within 30 days</th><td class="c" colspan="2"><span class="cb"></span>No <span class="cb"></span>Yes</td><th colspan="2">Which outlet &amp; which licence</th><td colspan="2"></td></tr>
+  </table>
+
+  <h2 class="sec">14 &nbsp;Events &amp; Activities in My Court</h2>
+  <table class="tight">
+    <tr><th style="width:19%">Activity today</th><td style="width:20%"></td><th style="width:10%">Type</th>
+        <td colspan="3"><span class="cb"></span>Event <span class="cb"></span>Live music <span class="cb"></span>Promotion <span class="cb"></span>Seasonal d&eacute;cor <span class="cb"></span>Festival <span class="cb"></span>None</td></tr>
+    <tr><th>Ran as per the brief</th><td class="c"><span class="cb"></span>Yes <span class="cb"></span>Partly <span class="cb"></span>No</td><th>Crowd response</th><td class="c" style="width:11%"></td><th style="width:15%">Problems faced</th><td></td></tr>
+    <tr><th>Activity planned tomorrow</th><td></td><th>My preparation done</th><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><th>Help I need</th><td></td></tr>
+  </table>
+
+  <h2 class="sec">My Follow-ups for Tomorrow <span class="hint">What I must not forget to do or check tomorrow</span></h2>
+  <table class="tight">
+    <tr><th class="c" style="width:4%">#</th><th style="width:54%">Task</th><th>Linked to which section above</th></tr>
+    <tr><td class="c">1</td><td></td><td></td></tr>
+    <tr><td class="c">2</td><td></td><td></td></tr>
+    <tr><td class="c">3</td><td></td><td></td></tr>
+    <tr><td class="c">4</td><td></td><td></td></tr>
+  </table>
+
+  <div class="footer"><span>ETL/OPS/ZM/DC-01 Rev 1.0 &mdash; Zone Manager Daily Court Checklist</span><span>Page 4 of 5</span></div>
+</div>
+
+<!-- =========== PAGE 5 =========== -->
+<div class="page">
+  <div class="masthead">
+    <div class="brand">EAT TRUCK LOVE<span>ETL FOOD ZONES</span></div>
+    <div class="docmeta">Food court: <span class="blank" style="min-width:95px"></span><br>Date: <span class="blank" style="min-width:95px"></span></div>
+  </div>
+  <div class="pagelabel"><span>PAGE 5 OF 5 &nbsp;&mdash;&nbsp; INCIDENTS, STOCK, CLOSING &amp; HANDOVER</span><span>ETL/OPS/ZM/DC-01</span></div>
+  <h2 class="sec">15 &nbsp;Incidents <span class="hint">Phone the Operations Manager the moment it happens. Write it here within 2 hours</span></h2>
+  <table class="tight">
+    <tr><th style="width:17%">Incidents today</th><td><span class="cb"></span><b>NIL</b> &nbsp;&nbsp;&nbsp; <span class="cb"></span>Yes &mdash; fill the table below</td></tr>
+    <tr><th>Type</th><td>
+      <span class="cb"></span>Fire &nbsp; <span class="cb"></span>Accident &nbsp; <span class="cb"></span>Theft &nbsp; <span class="cb"></span>Food poisoning &nbsp; <span class="cb"></span>Power failure &nbsp;
+      <span class="cb"></span>Water shortage &nbsp; <span class="cb"></span>Vendor dispute &nbsp; <span class="cb"></span>Customer injury &nbsp; <span class="cb"></span>Other: <span class="blank" style="min-width:65px"></span></td></tr>
+  </table>
+  <table class="tight">
+    <tr><th class="c" style="width:4%">#</th><th class="c" style="width:9%">Time it happened</th><th class="c" style="width:9%">Time I informed</th><th class="c" style="width:8%">Within 2 hrs?</th>
+        <th style="width:26%">What happened &amp; where</th><th style="width:21%">What I did immediately</th><th style="width:12%">Whom I informed</th><th class="c">Status</th></tr>
+    <tr><td class="c">1</td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td></td><td></td><td></td><td class="c">Open / Closed</td></tr>
+    <tr><td class="c">2</td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td></td><td></td><td></td><td class="c">Open / Closed</td></tr>
+  </table>
+  <table class="tight"><tr><th style="width:24%">Police / fire / ambulance called</th><td class="c" style="width:11%"><span class="cb"></span>No <span class="cb"></span>Yes</td>
+    <th style="width:22%">Customer filmed / posted online</th><td class="c" style="width:11%"><span class="cb"></span>No <span class="cb"></span>Yes</td>
+    <th style="width:20%">Photos / CCTV clip saved</th><td class="c"><span class="cb"></span>Y <span class="cb"></span>N/A</td></tr></table>
+
+  <h2 class="sec">16 &nbsp;Stock in My Store <span class="hint">If anything is at or below minimum, raise the indent the same day</span></h2>
+  <table class="tight">
+    <tr><th style="width:22%">Item category</th><th class="c" style="width:12%">Minimum level</th><th class="c" style="width:12%">Stock in hand</th><th class="c" style="width:13%">Below minimum?</th><th class="c" style="width:13%">Indent raised</th><th>Indent no. / remarks</th></tr>
+    <tr><td>Cleaning supplies</td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N/A</td><td></td></tr>
+    <tr><td>Washroom consumables</td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N/A</td><td></td></tr>
+    <tr><td>Security material</td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N/A</td><td></td></tr>
+    <tr><td>Signage material</td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N/A</td><td></td></tr>
+    <tr><td>Electrical stock</td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N/A</td><td></td></tr>
+    <tr><td>Plumbing stock</td><td></td><td></td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td><td class="c"><span class="cb"></span>Y <span class="cb"></span>N/A</td><td></td></tr>
+  </table>
+
+  <h2 class="sec">17 &nbsp;Closing &amp; Night Handover <span class="hint">I must see each of these myself before I leave the court</span></h2>
+  <ul class="chk cols2">
+    <li><span class="cb"></span>Closing cleaning round completed &amp; checked by me</li>
+    <li><span class="cb"></span>All outlets shut, shutters locked, timing noted</li>
+    <li><span class="cb"></span>Kitchen exhausts, chimneys &amp; hobs switched off</li>
+    <li><span class="cb"></span>LPG cylinders closed at valve &amp; secured</li>
+    <li><span class="cb"></span>Common lights / AC / music off as per schedule</li>
+    <li><span class="cb"></span>Facade &amp; security lighting left ON</li>
+    <li><span class="cb"></span>All garbage removed from the court</li>
+    <li><span class="cb"></span>Collections tallied and secured / deposited</li>
+    <li><span class="cb"></span>CCTV confirmed recording for the night</li>
+    <li><span class="cb"></span>All gates locked, keys handed to security</li>
+    <li><span class="cb"></span>Night guard briefed on open issues &amp; alerts</li>
+    <li><span class="cb"></span>Handover register signed by both of us</li>
+  </ul>
+  <table class="tight"><tr><th style="width:16%">Court closed at</th><td style="width:12%"></td>
+    <th style="width:24%">Handed over to (guard name)</th><td style="width:20%"></td>
+    <th style="width:16%">Court ran full day</th><td class="c"><span class="cb"></span>Y <span class="cb"></span>N</td></tr></table>
+
+  <h2 class="sec">18 &nbsp;What I Discussed With My Vendors Today <span class="hint">Write it down even if nothing was promised</span></h2>
+  <table class="tight">
+    <tr><th style="width:17%">Vendor / outlet</th><th style="width:28%">What was discussed</th><th style="width:28%">What I promised him</th><th>By when</th></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <h2 class="sec">19 &nbsp;Points I Need the Operations Manager to Act On</h2>
+  <table class="tight">
+    <tr><th class="c" style="width:4%">#</th><th style="width:38%">Issue I could not solve myself</th><th style="width:26%">What I have already tried</th><th>What I need from him</th></tr>
+    <tr><td class="c">1</td><td></td><td></td><td></td></tr>
+    <tr><td class="c">2</td><td></td><td></td><td></td></tr>
+    <tr><td class="c">3</td><td></td><td></td><td></td></tr>
+  </table>
+
+  <div class="row" style="margin-top:4px">
+    <div class="legendbox">
+      <u>Rules for filling this sheet</u>
+      <b>S</b> Satisfactory &nbsp;|&nbsp; <b>C</b> Cleaned &amp; set right &nbsp;|&nbsp; <b>E</b> Escalated<br>
+      A blank box means <b>NOT DONE</b>. Write <b>NIL</b> where there is nothing.<br>
+      Never overwrite &mdash; strike through, initial, then write again.<br>
+      Tick only what you have <b>personally seen</b>, not what staff told you.<br>
+      Keep the filled sheet in the court file for <b>12 months</b>.
+    </div>
+    <div class="legendbox">
+      <u>When to call the Operations Manager at once</u>
+      Fire, injury, food poisoning, theft: <b>call immediately</b>, write within 2 hrs<br>
+      Power or water failure over 30 minutes<br>
+      Any maintenance issue open more than 48 hours<br>
+      Any complaint I cannot close within 12 hours<br>
+      Any vendor payment pending more than 7 days
+    </div>
+  </div>
+
+  <table class="sign">
+    <tr>
+      <td style="width:34%"><b>FILLED BY &mdash; ZONE MANAGER</b><br>Name: <span class="blank" style="min-width:78px"></span><br><br>Signature &amp; time:</td>
+      <td style="width:33%"><b>CHECKED BY &mdash; ZONE SUPERVISOR</b><br>Name: <span class="blank" style="min-width:78px"></span><br><br>Signature &amp; time:</td>
+      <td><b>RECEIVED BY &mdash; OPERATIONS MANAGER</b><br>Name: <span class="blank" style="min-width:78px"></span><br><br>Signature &amp; time:</td>
+    </tr>
+    <tr><th colspan="3" style="height:auto">Operations Manager remarks / instructions to me</th></tr>
+    <tr><td colspan="3" style="height:30px"></td></tr>
+  </table>
+
+  <div class="footer"><span>ETL/OPS/ZM/DC-01 Rev 1.0 &mdash; Zone Manager Daily Court Checklist</span><span>Page 5 of 5</span></div>
+</div>
+
+
+</body>
+</html>
