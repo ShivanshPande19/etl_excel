@@ -85,7 +85,6 @@ SHORTBLANK = '<font color="#888888">________________</font>'
 def build_story():
     s = []
     s.append(Paragraph("<b>Date:</b> 1st August 2026", META))
-    s.append(Paragraph(f"<b>Ref. No.:</b> {SHORTBLANK}", META))
     s.append(Spacer(1, 8))
 
     s.append(Paragraph("<b>To,</b>", META))
