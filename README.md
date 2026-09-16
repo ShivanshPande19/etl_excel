@@ -27,8 +27,8 @@ Outlet: **Bennett University**, TechZone II, Greater Noida. Individual cards are
 
 | Name | Designation | Outlet | Contact |
 |---|---|---|---|
-| Pawan Rajput | Operations Head | Bennett University | — |
-| Dharmendra | Maintenance Head | Bennett University | — |
+| Pawan Rajput | Operations Head | All Zones | — |
+| Dharmendra | Maintenance Head | All Zones | — |
 | Nitish Kumar Mishra | Floor Manager | Bennett University | — |
 | Ashish Kumar | Staff | Bennett University | — |
 | Manjeet Kumar | Staff | Bennett University | — |
