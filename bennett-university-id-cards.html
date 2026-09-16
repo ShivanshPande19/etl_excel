@@ -197,7 +197,7 @@
   const el = document.getElementById("cards");
   staff.forEach(p => {
     const outletVal  = p.allZones ? "All Zones" : OUTLET;
-    const outletKey  = p.allZones ? "Coverage" : "Outlet";
+    const outletKey  = p.allZones ? "Coverage" : "Zone";
     const outletRow  = `<div class="row"><div class="ic">${icBuild}</div><div><div class="k">${outletKey}</div><div class="v">${outletVal}</div></div></div>`;
     const contactVal = p.phone ? p.phone : '<span class="pending">to be added</span>';
     const phoneRow   = `<div class="row"><div class="ic">${icPhone}</div><div><div class="k">Contact</div><div class="v">${contactVal}</div></div></div>`;
