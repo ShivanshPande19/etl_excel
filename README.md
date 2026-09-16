@@ -25,7 +25,7 @@ Printable ID cards for **Eat Truck Love (ETL) by Azimuth** housekeeping staff.
 
 Outlet: **Bennett University**, TechZone II, Greater Noida. Individual cards are in `id-cards/` and the layout preview is in `preview/bennett-id-cards-preview.png`.
 
-| Name | Designation | Outlet | Contact |
+| Name | Designation | Zone | Contact |
 |---|---|---|---|
 | Pawan Rajput | Operations Head | All Zones | +91 95604 64601 |
 | Dharminder Singh | Maintenance Head | All Zones | +91 99589 13516 |
