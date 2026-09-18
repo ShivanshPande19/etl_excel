@@ -29,6 +29,7 @@ Outlet: **Bennett University**, TechZone II, Greater Noida. Individual cards are
 |---|---|---|---|
 | Pawan Rajput | Operations Head | All Zones | +91 95604 64601 |
 | Dharminder Singh | Maintenance Head | All Zones | +91 99589 13516 |
+| Sunny Gupta | Operations Manager | Bennett University | +91 92056 54232 |
 | Nitish Kumar Mishra | Floor Manager | Bennett University | +91 88102 89632 |
 | Ashish Kumar | Staff | Bennett University | +91 97185 61709 |
 | Manjeet Kumar | Staff | Bennett University | +91 63961 15541 |
